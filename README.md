@@ -43,7 +43,7 @@ Pull request에서는 빌드만 검증하며 배포하지 않습니다. Actions�
 
 ### 최초 1회 설정
 
-현재 빌드 검증은 활성화되어 있고 외부 저장소 배포는 기본적으로 비활성화되어 있습니다. 아래 키 설정 후 이 저장소 Actions의 Variables에 `DEPLOY_ENABLED`를 `true`로 등록하면 배포됩니다. 키가 설정되기 전에는 빌드만 실행됩니다.
+자동 배포는 활성화되어 있습니다. `main`에 push하면 빌드 성공 후 `dev-hitop`으로 배포합니다. 전용 배포 키와 Actions 비밀값 `DEPLOY_SSH_KEY`, 변수 `DEPLOY_ENABLED=true`가 설정되어 있습니다. 자동 배포를 일시 중지하려면 `DEPLOY_ENABLED`를 `false`로 바꾸면 됩니다. 빌드 검증은 계속 실행됩니다.
 
 `dev-hitop`의 Settings → Deploy keys에 쓰기 허용된 전용 SSH 공개키를 등록하고, 이 저장소 Settings → Secrets and variables → Actions에 대응하는 비공개키를 `DEPLOY_SSH_KEY`로 등록합니다. 이 키는 배포 저장소에만 접근합니다. 비공개키는 소스 파일이나 README에 넣지 않습니다.
 
