@@ -1,0 +1,123 @@
+---
+layout: layouts/base.njk
+permalink: products-deck.html
+title: 목재덱
+description: 교량 보도와 공원 산책로에 적용하는 하이탑 천연 목재덱 제품군입니다.
+bodyClass: bg-surface text-ink
+---
+
+<section class="relative mt-20 h-[36vh] min-h-[280px] max-h-[380px] overflow-hidden bg-night">
+  <img src="{{ '/images/hero/deck-hero.jpg' | url }}" alt="녹지 공간에 조성된 목재데크 산책로"
+       class="absolute inset-0 h-full w-full object-cover object-[center_68%]" width="1920" height="1280" fetchpriority="high">
+  <div class="absolute inset-0 bg-night/45"></div>
+  <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-night/70 to-transparent"></div>
+
+  <div class="container-hi relative z-10 flex h-full flex-col justify-end pb-9 text-white sm:pb-11">
+    <nav aria-label="브레드크럼" class="mb-5 flex items-center gap-1.5 text-sm text-white/60">
+      <a href="{{ '/' | url }}" class="transition-colors hover:text-white">홈</a>
+      <span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span>
+      <span aria-current="page" class="text-white/90">목재덱</span>
+    </nav>
+    <span class="eyebrow-line !text-white/60">Wood Deck</span>
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_18px_rgba(11,14,19,0.45)] sm:text-4xl">목재덱</h1>
+  </div>
+</section>
+
+<section id="product-index" class="scroll-mt-20 border-b border-line bg-surface py-14 lg:py-20">
+  <div class="container-hi">
+    <div class="grid items-end gap-7 lg:grid-cols-12 lg:gap-12">
+      <div class="lg:col-span-7">
+        <span class="eyebrow-line">Product Portfolio</span>
+        <h2 class="mt-4 text-3xl font-extrabold leading-snug text-ink sm:text-4xl">공간의 쓰임에 맞춘 4개 수종</h2>
+      </div>
+      <p class="border-t border-ink/15 pt-5 leading-relaxed text-secondary lg:col-span-5">
+        교량 보도·공원 산책로·수변 공간의 조건을 고려해 수종을 선택할 수 있습니다.
+        수종별 원산지와 물성, 내구성 등급을 비교해 보세요.
+      </p>
+    </div>
+
+    <div class="mt-10 grid border-y border-ink/15 sm:grid-cols-2 lg:grid-cols-4">
+      {% for item in products.deck.compare %}
+        <div class="flex items-center gap-4 border-b border-line py-5 sm:odd:border-r sm:[&:nth-last-child(-n+2)]:border-b-0 lg:border-b-0 lg:border-r lg:odd:border-r lg:last:border-r-0 lg:px-6 lg:first:pl-0 lg:last:pr-0">
+          <span class="font-display text-xs font-bold tracking-[0.18em] text-accent">0{{ loop.index }}</span>
+          <div class="flex flex-1 items-baseline justify-between gap-3">
+            <h3 class="text-sm font-extrabold text-ink">{{ item.name }}</h3>
+            <span class="font-display text-[0.68rem] font-bold uppercase tracking-[0.12em] text-secondary">{{ item.grade }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-10 grid gap-6 lg:grid-cols-2">
+      {% for w in products.deck.woods %}
+        <article class="group overflow-hidden rounded-xl bg-white ring-1 ring-line transition-all duration-300 hover:-translate-y-1 hover:ring-primary/20 hover:shadow-[0_18px_45px_rgba(25,28,29,0.10)]">
+          <div class="relative h-60 overflow-hidden bg-section sm:h-64">
+            <img src="{{ w.img | url }}" alt="{{ w.nameKo }} 목재덱"
+                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                 loading="lazy" onerror="this.style.display='none'">
+            <div class="absolute inset-0 bg-gradient-to-t from-night/85 via-night/15 to-night/10"></div>
+            <span class="absolute left-6 top-5 font-display text-xs font-bold tracking-[0.2em] text-white/65">{{ w.num }}</span>
+            <div class="absolute inset-x-6 bottom-5 flex items-end justify-between gap-4">
+              <div>
+                <p class="font-display text-[0.62rem] font-bold uppercase tracking-[0.17em] text-white/55">{{ w.sub }}</p>
+                <h3 class="mt-2 text-2xl font-extrabold text-white">{{ w.nameKo }}</h3>
+              </div>
+              <span class="rounded-full border border-white/25 bg-night/25 px-3 py-1.5 text-xs font-bold text-white/80 backdrop-blur-sm">{{ w.origin }}</span>
+            </div>
+          </div>
+
+          <div class="p-7 sm:p-8">
+            <p class="text-sm leading-relaxed text-secondary">{{ w.desc }}</p>
+
+            <dl class="mt-6 grid grid-cols-2 border-y border-ink/12 sm:grid-cols-4">
+              {% for s in w.specs %}
+                <div class="border-b border-line px-3 py-4 odd:border-r sm:border-b-0 sm:border-r sm:odd:border-r sm:last:border-r-0 sm:first:pl-0">
+                  <dt class="font-display text-[0.58rem] font-bold uppercase tracking-[0.14em] text-secondary/65">{{ s.k }}</dt>
+                  <dd class="mt-1.5 text-[0.8rem] font-bold text-ink">{{ s.v }}</dd>
+                </div>
+              {% endfor %}
+            </dl>
+
+            <div class="mt-5">
+              {% for f in w.features %}
+                <div class="grid grid-cols-[2rem_1fr] gap-2 border-t border-ink/10 py-3 {% if loop.last %}border-b{% endif %}">
+                  <span class="font-display text-[0.62rem] font-bold text-accent">0{{ loop.index }}</span>
+                  <p class="text-[0.8rem] leading-relaxed text-ink/75">{{ f }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="border-b border-line bg-white py-14 lg:py-20">
+  <div class="container-hi">
+    <div class="grid items-end gap-7 lg:grid-cols-12 lg:gap-12">
+      <div class="lg:col-span-7">
+        <span class="eyebrow-line">Installation Guide</span>
+        <h2 class="mt-4 text-3xl font-extrabold leading-snug text-ink sm:text-4xl">시공 전 확인해야 할 기준</h2>
+      </div>
+      <p class="border-t border-ink/15 pt-5 leading-relaxed text-secondary lg:col-span-5">
+        목재의 움직임과 배수, 하부 구조를 함께 고려해야 안정적인 품질을 유지할 수 있습니다.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-x-10 md:grid-cols-3">
+      {% for item in products.deck.install %}
+        <article class="border-t border-ink/15 py-6 md:border-b">
+          <span class="font-display text-xs font-bold tracking-[0.18em] text-accent">0{{ loop.index }}</span>
+          <h3 class="mt-5 text-lg font-extrabold text-ink">{{ item.t }}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-secondary">{{ item.d }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set ctaTitle = "목재덱 납품 문의" %}
+{% set ctaDesc = "수종 선택과 규격, 수량을 알려주시면 현장 조건에 맞춰 검토해 드립니다." %}
+{% set ctaSecondary = { label: "논슬립 보기", url: "/products-nonslip.html" } %}
+{% include "partials/cta-band.njk" %}

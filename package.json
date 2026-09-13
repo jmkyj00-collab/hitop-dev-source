@@ -1,0 +1,23 @@
+{
+  "name": "hitop-website",
+  "version": "2.0.0",
+  "description": "주식회사 하이탑(HITOP) 코퍼레이트 웹사이트 — Eleventy + Tailwind CSS",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf _site",
+    "build:css": "tailwindcss -i ./src/css/main.css -o ./_site/css/style.css --minify",
+    "watch:css": "tailwindcss -i ./src/css/main.css -o ./_site/css/style.css --watch",
+    "build:11ty": "eleventy",
+    "watch:11ty": "eleventy --serve --ignore-initial",
+    "build": "npm run clean && npm run build:css && npm run build:11ty",
+    "dev": "npm run build && npm-run-all --parallel watch:css watch:11ty"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "npm-run-all2": "^7.0.0",
+    "rimraf": "^6.0.0"
+  }
+}

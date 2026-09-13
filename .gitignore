@@ -1,0 +1,32 @@
+# OS / 시스템 파일
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# 에디터 / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python 캐시 (유틸리티 스크립트용)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 임시 / 백업 파일
+*.tmp
+*.bak
+*.log
+
+# Node / 빌드 산출물
+node_modules/
+_site/
+dist/
+.cache/
+
+# 작업 참고 자료 (사이트 빌드와 무관, 내부 문서)
+hompage_ref/

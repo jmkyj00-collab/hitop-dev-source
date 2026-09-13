@@ -1,0 +1,204 @@
+---
+layout: layouts/base.njk
+title: 회사소개
+description: 교량이음장치와 논슬립, 목재덱을 생산·공급하는 인프라 전문기업 주식회사 하이탑을 소개합니다.
+bodyClass: bg-surface text-ink
+---
+
+<section class="relative mt-20 h-[36vh] min-h-[280px] max-h-[380px] overflow-hidden bg-night">
+  <img src="{{ '/images/hero/about-hero.webp' | url }}" alt="교량 구조와 기반시설을 표현한 이미지"
+       class="absolute inset-0 h-full w-full object-cover object-[center_54%]" width="1672" height="941" fetchpriority="high">
+  <div class="absolute inset-0 bg-night/45"></div>
+  <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-night/75 to-transparent"></div>
+
+  <div class="container-hi relative z-10 flex h-full flex-col justify-end pb-9 text-white sm:pb-11">
+    <nav aria-label="브레드크럼" class="mb-5 flex items-center gap-1.5 text-sm text-white/60">
+      <a href="{{ '/' | url }}" class="transition-colors hover:text-white">홈</a>
+      <span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span>
+      <span aria-current="page" class="text-white/90">회사소개</span>
+    </nav>
+    <span class="eyebrow-line !text-white/60">About HITOP</span>
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_18px_rgba(11,14,19,0.45)] sm:text-4xl">회사소개</h1>
+  </div>
+</section>
+
+<!-- ══ 인사말 ══ -->
+<section class="section container-hi">
+  <div class="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+
+    <!-- 좌: 소개문 -->
+    <div class="lg:col-span-7">
+      <span class="eyebrow-line">Greeting</span>
+      <h2 class="mt-4 text-3xl font-extrabold leading-snug tracking-tight text-ink sm:text-4xl">
+        A Constant Challenge<br>for a Better Future
+      </h2>
+      <p class="mt-3 font-display text-lg font-bold text-secondary">더 나은 미래를 향한 끊임없는 도전</p>
+
+      <div class="mt-9 space-y-5 leading-relaxed text-ink/85">
+        <p>주식회사 하이탑은 오랜 경험과 전문 기술력을 바탕으로 교량 신축이음장치, 논슬립 제품, 목재데크 등을 직접 생산·공급하는 인프라 전문 기업입니다. 25년 업력으로 축적된 현장 경험과 기술 노하우를 기반으로, 안전성과 내구성을 갖춘 고품질 제품을 개발해 왔습니다.</p>
+        <p>다수의 특허 기술과 검증된 납품 실적을 통해 기술 경쟁력을 인정받고 있으며, 철저한 품질 관리와 고객 중심의 대응으로 신뢰받는 기업으로 성장하고 있습니다.</p>
+        <p>하이탑은 최고의 제품을 만들기 위한 자세로 끊임없이 연구하고 발전하며, 앞으로도 품질과 기술력에서 최고를 지향하는 기업이 되겠습니다.</p>
+        <p>여러분의 많은 성원 부탁드립니다. 감사합니다.</p>
+      </div>
+
+      <div class="mt-9 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-l-2 border-accent pl-5">
+        <p class="font-display text-xs font-bold uppercase tracking-[0.18em] text-secondary">주식회사 하이탑 대표이사</p>
+        <p class="text-xl font-extrabold text-ink">{{ site.ceo }}</p>
+      </div>
+    </div>
+
+    <!-- 우: 사옥 사진 + 회사정보 -->
+    <div class="lg:col-span-5">
+      <div class="overflow-hidden rounded-xl ring-1 ring-line shadow-sm">
+        <img src="{{ '/images/about/company-exterior.png' | url }}" alt="주식회사 하이탑 사옥 전경"
+             class="aspect-[4/3] w-full object-cover" onerror="this.style.display='none'">
+      </div>
+      <dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-line ring-1 ring-line">
+        {% set info = [
+          { k: "회사명", v: site.name },
+          { k: "대표자", v: site.ceo },
+          { k: "사업자번호", v: site.bizRegNo },
+          { k: "홈페이지", v: site.contact.website }
+        ] %}
+        {% for it in info %}
+          <div class="bg-white p-4">
+            <dt class="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-secondary/80">{{ it.k }}</dt>
+            <dd class="mt-1.5 text-sm font-bold text-ink">{{ it.v }}</dd>
+          </div>
+        {% endfor %}
+        <div class="col-span-2 bg-white p-4">
+          <dt class="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-secondary/80">본사 주소</dt>
+          <dd class="mt-1.5 text-sm font-bold text-ink">({{ site.contact.zip }}) {{ site.contact.address }}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 인증 · 특허 ══ -->
+<section id="patents" class="scroll-mt-20 border-y border-line bg-section">
+  <div class="section container-hi">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <span class="eyebrow-line">Patents &amp; Certifications</span>
+        <h2 class="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">인증과 특허</h2>
+      </div>
+      <p class="max-w-sm text-sm leading-relaxed text-secondary">신축이음장치 분야 등록 특허 5건과 공식 인증 6종을 보유하고 있습니다.</p>
+    </div>
+
+    <div class="mt-12 grid gap-14 lg:grid-cols-12 lg:gap-16">
+
+      <!-- 등록 특허 5건 — 실물 특허증 -->
+      <div class="lg:col-span-7">
+        <h3 class="text-lg font-extrabold text-ink">등록 특허 <span class="font-display text-primary">5</span>건</h3>
+        <div class="mt-6 grid grid-cols-3 gap-4 sm:grid-cols-5">
+          {% set patents = ["2375750", "2401961", "2503300", "2622949", "2671452"] %}
+          {% for p in patents %}
+            <figure>
+              <div class="overflow-hidden rounded-md bg-white p-1 ring-1 ring-line shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                <img src="{{ ('/images/certs/patent-' ~ p ~ '.jpg') | url }}" alt="특허증 제10-{{ p }}호"
+                     class="aspect-[210/297] w-full object-cover object-top" loading="lazy"
+                     onerror="this.closest('figure').style.display='none'">
+              </div>
+              <figcaption class="mt-2 text-center font-display text-[0.68rem] font-bold tracking-wide text-secondary">제10-{{ p }}호</figcaption>
+            </figure>
+          {% endfor %}
+        </div>
+        <p class="mt-5 text-sm text-secondary">신축이음장치 분야 독자 기술로 등록된 특허입니다.</p>
+      </div>
+
+      <!-- 공식 인증 6종 -->
+      <div class="lg:col-span-5">
+        <h3 class="text-lg font-extrabold text-ink">공식 인증 <span class="font-display text-primary">6</span>종</h3>
+        <div class="mt-3">
+          {% set certs = [
+            { n: "조달청 등록제품", s: "나라장터 우수제품" },
+            { n: "벤처기업", s: "혁신성장유형 ~2026.11.07" },
+            { n: "창업기업", s: "중소벤처기업부 인증" },
+            { n: "장애인기업", s: "장애인기업 확인서" },
+            { n: "G-PASS", s: "해외조달시장 진출 유망기업" },
+            { n: "중소기업", s: "중소기업 확인서" }
+          ] %}
+          {% for c in certs %}
+            <div class="flex items-baseline justify-between gap-4 border-b border-ink/10 py-4 {% if loop.first %}border-t{% endif %}">
+              <h4 class="text-[0.95rem] font-bold text-ink">{{ c.n }}</h4>
+              <p class="text-right text-xs text-secondary">{{ c.s }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 오시는 길 · 연락처 (에디토리얼 스타일 — 카드 대신 헤어라인 행) ══ -->
+<section id="location" class="scroll-mt-20">
+  <div class="section container-hi">
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+
+      <!-- 좌: 고객센터 -->
+      <div class="lg:col-span-4">
+        <span class="eyebrow-line">Location &amp; Contact</span>
+        <h2 class="mt-3 text-2xl font-extrabold text-ink sm:text-3xl">오시는 길 · 연락처</h2>
+
+        <p class="mt-10 font-display text-[0.65rem] font-bold uppercase tracking-[0.25em] text-secondary/80">고객센터</p>
+        <a href="tel:{{ site.contact.tel }}" class="mt-1 block font-display text-3xl font-extrabold text-primary transition-colors hover:text-accent">{{ site.contact.tel }}</a>
+        <p class="mt-2 text-sm text-secondary">평일 09:00 – 18:00 (주말/공휴일 휴무)</p>
+
+        <div class="mt-8 space-y-2 text-sm">
+          <p class="flex gap-3 text-secondary">
+            <span class="w-10 shrink-0 font-display text-xs font-bold uppercase tracking-wider">Fax</span>{{ site.contact.fax }}
+          </p>
+          <p class="flex gap-3 text-secondary">
+            <span class="w-10 shrink-0 font-display text-xs font-bold uppercase tracking-wider">Mail</span>
+            <a href="mailto:{{ site.contact.email }}" class="font-bold text-ink transition-colors hover:text-primary">{{ site.contact.email }}</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- 우: 사업장 목록 -->
+      <div class="lg:col-span-8">
+        <div class="divide-y divide-line border-y border-line">
+
+          <!-- 본사 -->
+          <div class="grid gap-3 py-8 sm:grid-cols-[140px_1fr]">
+            <div>
+              <h3 class="text-lg font-extrabold text-ink">본사</h3>
+              <p class="font-display text-xs font-bold uppercase tracking-wider text-secondary/80">Headquarters</p>
+            </div>
+            <div>
+              <p class="leading-relaxed text-ink">({{ site.contact.zip }}) {{ site.contact.address }}</p>
+              <p class="mt-2 text-sm text-secondary">Tel. <a href="tel:{{ site.contact.tel }}" class="font-bold transition-colors hover:text-primary">{{ site.contact.tel }}</a></p>
+              <p class="mt-4 space-x-5 text-sm">
+                <a href="https://map.kakao.com/link/search/{{ site.contact.address | urlencode }}" target="_blank" rel="noopener"
+                   class="font-bold text-primary hover:underline">카카오맵에서 보기 ↗</a>
+                <a href="https://map.naver.com/v5/search/{{ site.contact.address | urlencode }}" target="_blank" rel="noopener"
+                   class="font-bold text-primary hover:underline">네이버지도에서 보기 ↗</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- 본사2 -->
+          <div class="grid gap-3 py-8 sm:grid-cols-[140px_1fr]">
+            <div>
+              <h3 class="text-lg font-extrabold text-ink">{{ site.branch.name }}</h3>
+              <p class="font-display text-xs font-bold uppercase tracking-wider text-secondary/80">{{ site.branch.label }}</p>
+            </div>
+            <div>
+              <p class="leading-relaxed text-ink">({{ site.branch.zip }}) {{ site.branch.address }}</p>
+              <p class="mt-1 text-sm leading-relaxed text-secondary">{{ site.branch.addressEn }}</p>
+              <p class="mt-2 text-sm text-secondary">Tel. <a href="tel:{{ site.branch.tel }}" class="font-bold transition-colors hover:text-primary">{{ site.branch.tel }}</a></p>
+              <p class="mt-4 space-x-5 text-sm">
+                <a href="https://map.kakao.com/link/search/{{ site.branch.address | urlencode }}" target="_blank" rel="noopener"
+                   class="font-bold text-primary hover:underline">카카오맵에서 보기 ↗</a>
+                <a href="https://map.naver.com/v5/search/{{ site.branch.address | urlencode }}" target="_blank" rel="noopener"
+                   class="font-bold text-primary hover:underline">네이버지도에서 보기 ↗</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+---
+<!-- 서브페이지 공용 히어로 (front matter: title / eyebrow / subtitle) -->
+<section class="relative overflow-hidden border-b border-line bg-section pt-36 pb-14 lg:pt-44 lg:pb-20">
+  <div class="technical-grid absolute inset-0 opacity-40"></div>
+  <div class="container-hi relative z-10">
+    <nav class="mb-6 flex items-center gap-1.5 text-sm text-secondary" aria-label="브레드크럼">
+      <a href="{{ '/' | url }}" class="transition-colors hover:text-ink">홈</a>
+      <span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span>
+      <span class="text-ink">{{ title }}</span>
+    </nav>
+    {% if eyebrow %}<span class="eyebrow-line">{{ eyebrow }}</span>{% endif %}
+    <h1 class="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">{{ title }}</h1>
+    {% if subtitle %}<p class="mt-5 max-w-2xl leading-relaxed text-secondary">{{ subtitle | safe }}</p>{% endif %}
+  </div>
+</section>
+
+{{ content | safe }}

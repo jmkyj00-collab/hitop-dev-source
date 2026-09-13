@@ -1,0 +1,11 @@
+# 텍스트 파일은 자동 정규화 (저장소에는 LF로 보관)
+* text=auto
+
+# 이미지 등 바이너리 파일은 변환하지 않음
+*.png binary
+*.jpg binary
+*.jpx binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
