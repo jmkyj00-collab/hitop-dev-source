@@ -6,7 +6,7 @@ if (!sourceArg || !targetArg) throw new Error('Usage: sync-deployment.mjs SOURCE
 const source = path.resolve(sourceArg);
 const target = path.resolve(targetArg);
 if (source === target || target.startsWith(source + path.sep) || source.startsWith(target + path.sep)) throw new Error('Source and target must be separate directories');
-const allowed = p => /^(index\.html|delivery\.html|products-(bridge|deck|nonslip)\.html|about\/index\.html|(?:css|js|images)\/.+)$/.test(p) && !p.split('/').some(s => s === '..' || s.startsWith('.'));
+const allowed = p => /^(index\.html|delivery\.html|products-(bridge|deck|nonslip)\.html|about\/(?:history\/|certifications\/)?index\.html|(?:css|js|images)\/.+)$/.test(p) && !p.split('/').some(s => s === '..' || s.startsWith('.'));
 async function files(root, prefix = '') {
   const result = [];
   for (const entry of await readdir(path.join(root, prefix), { withFileTypes: true })) {

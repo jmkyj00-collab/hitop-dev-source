@@ -12,18 +12,6 @@
         "제품 연결부가 암수로 이루어져 누수가 발생하지 않아 하부구조 부식을 방지하고 상판이 강재로 되어있어 반영구적입니다.",
         "측판과 방수고무의 조립연결구조로 필요한 길이로 제작 및 설치가 가능하며 방수성이 뛰어납니다."
       ],
-      "materials": {
-        "head": ["품명", "재질", "규격"],
-        "rows": [
-          ["상판", "SS275", "12T"],
-          ["고무씰", "NEOPRENE", "6T"],
-          ["앵커", "SS275", "∅22 × 200"],
-          ["측판", "SS275", "90 × 1800 × 9T"],
-          ["연결판", "SS275", "6T"],
-          ["연결고리", "SS275", "38 × 70 × 9T"],
-          ["수평유지구", "SS275", "38 × 100 × 9T"]
-        ]
-      },
       "spec": {
         "head": ["MODEL No.", "물품식별번호", "신축량 (mm)", "유간 Min", "유간 Mid", "유간 Max", "A (mm)", "B (mm)", "C (mm)"],
         "idCol": 1,
@@ -161,85 +149,80 @@
     }
   ],
 
-  "nonslip": [
-    {
-      "num": "01", "nameKo": "다이아 논슬립", "nameEn": "Diamond Non-Slip",
-      "img": "/images/products/nonslip/diamond.jpg",
-      "desc": "다이아몬드 패턴 표면 처리로 최고 수준의 미끄럼 방지 효과를 제공합니다.",
-      "features": ["강력한 미끄럼 방지 성능", "내마모성 우수", "계단·보도 적용"],
-      "mat": "Diamond Pattern", "env": "계단·보도", "remark": "—"
-    },
-    {
-      "num": "02", "nameKo": "세라믹 논슬립", "nameEn": "Ceramic Non-Slip",
-      "img": "/images/products/nonslip/ceramic.jpg",
-      "desc": "고온 소성 세라믹 입자를 접착하여 내열·내화학성이 뛰어난 미끄럼 방지 제품입니다.",
-      "features": ["내열·내화학성 우수", "습윤 환경에 적합", "옥외·교량 보도 적용"],
-      "mat": "Ceramic", "env": "옥외·교량 보도", "remark": "내열·내화학성"
-    },
-    {
-      "num": "03", "nameKo": "텅스텐 논슬립", "nameEn": "Tungsten Non-Slip",
-      "img": "/images/products/nonslip/tungsten.jpg",
-      "desc": "텅스텐 카바이드 소재를 적용하여 극강의 내마모성과 장기 내구성을 자랑합니다.",
-      "features": ["최고 수준 내마모성", "장기 사용 보장", "중하중 환경 적용"],
-      "mat": "Tungsten Carbide", "env": "중하중 환경", "remark": "최고 내마모성"
-    },
-    {
-      "num": "04", "nameKo": "스테인리스 논슬립", "nameEn": "Stainless Non-Slip",
-      "img": "/images/products/nonslip/stainless.jpg",
-      "desc": "SUS 304 스테인리스 소재로 부식에 강하며 위생적인 환경에 적합합니다.",
-      "features": ["SUS 304 소재", "부식 방지 우수", "위생·식품 환경 적합"],
-      "mat": "SUS 304", "env": "위생·식품 환경", "remark": "부식 방지"
-    },
-    {
-      "num": "05", "nameKo": "알루미늄 논슬립", "nameEn": "Aluminum Non-Slip",
-      "img": "/images/products/nonslip/aluminum.jpg",
-      "desc": "경량 알루미늄 합금으로 시공이 간편하며 미적 요소가 뛰어납니다.",
-      "features": ["경량 · 시공 용이", "내식성 우수", "실내·실외 겸용"],
-      "mat": "Aluminum Alloy", "env": "실내·실외", "remark": "경량"
-    },
-    {
-      "num": "06", "nameKo": "황동 논슬립", "nameEn": "Brass Non-Slip",
-      "img": "/images/products/nonslip/brass.jpg",
-      "desc": "황동 소재로 심미적 가치가 높으며 고급 건축물 계단에 적합합니다.",
-      "features": ["고급 마감 처리", "심미성 우수", "실내 고급 계단 적용"],
-      "mat": "Brass", "env": "실내 고급 계단", "remark": "심미성 우수"
-    },
-    {
-      "num": "07", "nameKo": "카보런덤 논슬립", "nameEn": "Carborundum Non-Slip",
-      "img": "/images/products/nonslip/carborundum.jpg",
-      "desc": "탄화규소(SiC) 입자를 사용하여 강력한 표면 마찰력을 제공합니다.",
-      "features": ["고마찰 계수", "습윤 환경 우수", "산업 시설 적합"],
-      "mat": "SiC (탄화규소)", "env": "산업 시설", "remark": "고마찰 계수"
-    },
-    {
-      "num": "08", "nameKo": "논슬립 테이프형", "nameEn": "Non-Slip Tape",
-      "img": "/images/products/nonslip/tape.jpg",
-      "desc": "접착식 테이프 형태로 기존 구조물에 간편하게 부착하여 사용 가능합니다.",
-      "features": ["접착식 간편 시공", "기존 시설 개보수 적합", "다양한 색상 선택"],
-      "mat": "복합 소재", "env": "기존 시설 개보수", "remark": "접착식"
-    },
-    {
-      "num": "09", "nameKo": "PE 논슬립", "nameEn": "PE Non-Slip",
-      "img": "/images/products/nonslip/pe.jpg",
-      "desc": "폴리에틸렌 소재로 가볍고 충격 흡수력이 우수하며 저온 환경에서도 성능을 유지합니다.",
-      "features": ["경량 · 충격 흡수", "저온 내성 우수", "친환경 소재"],
-      "mat": "Polyethylene", "env": "저온 환경", "remark": "친환경"
-    },
-    {
-      "num": "10", "nameKo": "고무 논슬립", "nameEn": "Rubber Non-Slip",
-      "img": "/images/products/nonslip/rubber.jpg",
-      "desc": "천연·합성 고무 소재로 탄성과 미끄럼 방지 기능이 우수하며 소음 감소 효과가 있습니다.",
-      "features": ["탄성 · 소음 감소", "미끄럼 방지 우수", "다목적 환경 적용"],
-      "mat": "Rubber (천연/합성)", "env": "다목적", "remark": "소음 감소"
-    },
-    {
-      "num": "11", "nameKo": "복합소재 논슬립", "nameEn": "Composite Non-Slip",
-      "img": "/images/products/nonslip/composite.jpg",
-      "desc": "두 가지 이상의 소재를 복합하여 각 소재의 장점을 최대화한 고성능 제품입니다.",
-      "features": ["복합 소재 최적화", "다기능 성능", "맞춤형 사양 제작 가능"],
-      "mat": "Composite", "env": "맞춤 환경", "remark": "주문 제작 가능"
-    }
-  ],
+  "nonslip": {
+    "groups": [
+      {
+        "id": "ceramic",
+        "num": "01",
+        "nameKo": "세라믹 논슬립",
+        "nameEn": "Ceramic Non-Slip",
+        "desc": "내마모성 강도가 우수한 세라믹 패드 제품군입니다.",
+        "install": "/images/products/nonslip/install/ceramic.jpg",
+        "installAlt": "계단에 시공된 다이아패턴 세라믹 논슬립",
+        "models": [
+          { "name": "HT-64DS 다이아패턴", "codes": [{ "no": "25486725" }], "spec": "1000 × 64 × t2.5mm", "img": "/images/products/nonslip/ht-64ds.jpg" },
+          { "name": "HT-62DA / HT-67DA 다이아패턴", "codes": [{ "label": "HT-62DA", "no": "25571141" }, { "label": "HT-67DA", "no": "25486724" }], "spec": "HT-62DA 1000 × 62 × t2.5mm · 앞발길이 20mm / HT-67DA 1000 × 67 × t2.5mm · 앞발길이 25mm", "img": "/images/products/nonslip/ht-62da.jpg" },
+          { "name": "HT-62A", "codes": [{ "no": "25583820" }], "spec": "1000 × 62 × t2.5mm · 앞발길이 20mm", "img": "/images/products/nonslip/ht-62a.jpg" },
+          { "name": "HT-62LAA (축광)", "codes": [{ "no": "26011580" }], "spec": "1000 × 62 × t2mm · 앞발길이 20mm", "img": "/images/products/nonslip/ht-62laa.jpg" },
+          { "name": "HT-70S", "codes": [{ "no": "25571142" }], "spec": "1000 × 70 × t2.5mm", "img": "/images/products/nonslip/ht-70s.jpg" },
+          { "name": "HT-70LS (축광)", "codes": [{ "no": "25571143" }], "spec": "1000 × 70 × t2mm", "img": "/images/products/nonslip/ht-70ls.jpg" },
+          { "name": "HT-62LA (축광)", "codes": [{ "no": "26011579" }], "spec": "1000 × 62 × t2mm · 앞발길이 20mm", "img": "/images/products/nonslip/ht-62la.jpg" },
+          { "name": "HT-75 (축광)", "codes": [], "spec": "W 75mm · H 25mm · T 2mm", "img": "/images/products/nonslip/ht-75la.jpg" }
+        ],
+        "notes": [
+          "축광 제품은 비상시 유도선으로 적합합니다.",
+          "색상 — 노랑 · 오렌지 · 블루 · 스톤 · 와인 · 녹색 · 밤색 · 회색투톤 · 회색 · 검정 · 퍼플 · 사선 (제품별 색상 문의)"
+        ]
+      },
+      {
+        "id": "tungsten",
+        "num": "02",
+        "nameKo": "텅스텐 논슬립",
+        "nameEn": "Tungsten Non-Slip",
+        "desc": "텅스텐 입자를 사용하여 미끄럼 방지 성능을 극대화한 제품군입니다. 반영구적으로 사용할 수 있으며 인테리어 효과가 뛰어납니다.",
+        "install": "/images/products/nonslip/install/tungsten.jpg",
+        "installAlt": "계단에 시공된 텅스텐 논슬립",
+        "models": [
+          { "name": "텅스텐 55", "codes": [{ "no": "25486728" }, { "no": "25486729" }], "regName": "HT-55TA-03 / HT-55TA-04", "spec": "1000 × 55 × t1mm · 앞발길이 20mm", "img": "/images/products/nonslip/tungsten-55.jpg" },
+          { "name": "텅스텐 50 평", "codes": [{ "no": "25568360" }], "regName": "HTT-50S", "spec": "1000 × 50 × t1mm", "img": "/images/products/nonslip/tungsten-50.jpg" },
+          { "name": "AL텅스텐 72", "codes": [], "spec": "W 72mm · H 25mm · T 3mm", "img": "/images/products/nonslip/al-tungsten-72.jpg" },
+          { "name": "AL텅스텐 74", "codes": [{ "no": "25486726" }, { "no": "25486727" }], "regName": "HT-74TS-01 / HT-74TS-02", "spec": "1000 × 74 × t3mm", "img": "/images/products/nonslip/al-tungsten-74.jpg" },
+          { "name": "AL텅스텐 65 축광", "codes": [{ "no": "25571140" }], "regName": "HTT-65LA", "spec": "1000 × 65 × t3.2mm · 앞발길이 25mm", "img": "/images/products/nonslip/al-tungsten-65-lum.jpg" },
+          { "name": "텅스텐 55 축광", "codes": [{ "no": "25568361" }], "regName": "HTT-55LA", "spec": "1000 × 55 × t1mm · 앞발길이 20mm", "img": "/images/products/nonslip/tungsten-55-lum.jpg" }
+        ],
+        "notes": []
+      },
+      {
+        "id": "sus-ceramic",
+        "num": "03",
+        "nameKo": "스테인리스 세라믹 논슬립",
+        "nameEn": "Stainless Ceramic Non-Slip",
+        "desc": "내구성과 내마모성이 우수한 고강도 스테인리스 세라믹 제품군입니다.",
+        "install": "/images/products/nonslip/install/sus-ceramic.jpg",
+        "installAlt": "계단에 시공된 스테인리스 세라믹 논슬립",
+        "models": [
+          { "name": "HT-65 / HT-75", "codes": [], "spec": "HT-65 W 65mm · H 25mm · T 2mm / HT-75 W 75mm · H 25mm · T 2mm", "img": "/images/products/nonslip/sus-ceramic-65-75.jpg" },
+          { "name": "HT-75", "codes": [], "spec": "W 75mm · H 25mm · T 2mm", "img": "/images/products/nonslip/sus-ceramic-75.jpg" }
+        ],
+        "notes": []
+      },
+      {
+        "id": "indoor",
+        "num": "04",
+        "nameKo": "실내용 논슬립",
+        "nameEn": "Indoor Non-Slip",
+        "desc": "실내 미끄럼 방지용으로 안전사고 예방에 적합한 제품군입니다.",
+        "install": "/images/products/nonslip/install/indoor.jpg",
+        "installAlt": "실내 계단에 시공된 실내용 논슬립",
+        "models": [
+          { "name": "HT-65 실내용", "codes": [], "spec": "W 65mm · H 25mm · T 2mm", "img": "/images/products/nonslip/indoor-65.jpg" },
+          { "name": "HT-64 실내용", "codes": [], "spec": "W 64mm · T 2mm", "img": "/images/products/nonslip/indoor-64.jpg" },
+          { "name": "HT-67 실내용 (3M, VSM)", "codes": [], "spec": "W 67mm · H 25mm · T 2.5mm", "img": "/images/products/nonslip/indoor-67.jpg" }
+        ],
+        "notes": []
+      }
+    ]
+  },
 
   "deck": {
     "compare": [
@@ -257,8 +240,12 @@
           { "k": "비중", "v": "0.55~0.65" },
           { "k": "기본색상", "v": "황갈색" },
           { "k": "내구성", "v": "Class 3" },
-          { "k": "원산지", "v": "국내산" }
+          { "k": "원산지", "v": "대한민국" }
         ],
+        "models": [
+          { "model": "HI-NYS30", "code": "25729735", "size": "1800 × 120 × t30 mm" }
+        ],
+        "usage": "내장재, 데크재, 의자재, 계단재, 손스침, 조경재 등",
         "features": [
           "국산 친환경 목재로 수급 안정성 우수",
           "높은 강도 · 내수성 보유",
@@ -276,6 +263,10 @@
           { "k": "내구성", "v": "Class 1" },
           { "k": "원산지", "v": "브라질" }
         ],
+        "models": [
+          { "model": "HI-MDU21", "code": "25729740", "size": "1800 × 90 × t21 mm" }
+        ],
+        "usage": "내장재, 데크재, 의자재, 계단재, 손스침, 조경재 등",
         "features": [
           "세계 최고 수준의 강도·내구성",
           "부후·충해에 극강 저항성",
@@ -284,37 +275,47 @@
         ]
       },
       {
-        "num": "03", "nameKo": "멀바우", "sub": "Merbau · Intsia bijuga", "origin": "동남아산",
+        "num": "03", "nameKo": "멀바우", "sub": "Merbau · Intsia bijuga", "origin": "인도네시아산",
         "img": "/images/products/deck/merbau.jpg",
-        "desc": "동남아시아(인도네시아·말레이시아) 원산의 고급 하드우드입니다. 아름다운 목결과 뛰어난 내구성으로 조경·교량 보도에 가장 많이 사용됩니다.",
+        "desc": "인도네시아 원산의 고급 하드우드입니다. 암갈색의 색상에 대단히 무겁고 단단하며, 내구성이 매우 높아 병충해에 강합니다.",
         "specs": [
           { "k": "비중", "v": "0.80~0.90" },
           { "k": "기본색상", "v": "적갈~황갈색" },
           { "k": "내구성", "v": "Class 1" },
-          { "k": "원산지", "v": "동남아시아" }
+          { "k": "원산지", "v": "인도네시아" }
         ],
+        "models": [
+          { "model": "HI-MBU21", "code": "25729739", "size": "1800 × 90 × t21 mm" },
+          { "model": "HI-MBU30", "code": "25729738", "size": "1800 × 120 × t30 mm" }
+        ],
+        "usage": "내장재, 데크재, 의자재, 계단재, 손스침, 조경재 등",
         "features": [
-          "아름다운 목결 · 고급스러운 외관",
-          "내구성 · 내후성 Class 1 등급",
-          "가공성 우수 · 시공 편의",
+          "내구성이 매우 높아 병충해에 강함",
+          "암갈색 색상에 대단히 무겁고 단단함",
+          "나무결은 조금 거친 편이나 광택성을 지님",
           "조경·교량 보도에 가장 널리 사용"
         ]
       },
       {
-        "num": "04", "nameKo": "카스", "sub": "Kas · African Hardwood", "origin": "아프리카산",
+        "num": "04", "nameKo": "카스", "sub": "Kas · Hardwood", "origin": "수리남산",
         "img": "/images/products/deck/kas.jpg",
-        "desc": "아프리카 원산의 하드우드로 균일한 색상과 안정된 목질을 자랑합니다. 뛰어난 치수 안정성으로 야외 데크·교량 환경에 적합합니다.",
+        "desc": "수리남 원산의 하드우드로 내구성이 우수하고 충해에 강합니다. 비교적 치수 안정성이 우수해 부두재·교량재·데크재로 널리 사용됩니다.",
         "specs": [
           { "k": "비중", "v": "0.70~0.85" },
           { "k": "기본색상", "v": "황갈~올리브색" },
           { "k": "내구성", "v": "Class 2" },
-          { "k": "원산지", "v": "아프리카" }
+          { "k": "원산지", "v": "수리남" }
         ],
+        "models": [
+          { "model": "HI-CAS21", "code": "25729737", "size": "1800 × 90 × t21 mm" },
+          { "model": "HI-CAS30", "code": "25729736", "size": "1800 × 120 × t30 mm" }
+        ],
+        "usage": "중구소용재, 부두재, 교량재, 선박용재, 조경재, 바닥재, 데크재 등",
         "features": [
-          "균일한 색상으로 시공 후 통일감 우수",
-          "뛰어난 치수 안정성 · 변형 적음",
-          "야외 장기 사용에 적합",
-          "합리적인 가격 대비 높은 내구성"
+          "내구성 우수함",
+          "충해에 강함",
+          "비교적 치수 안정성 우수함",
+          "야외 장기 사용에 적합"
         ]
       }
     ],

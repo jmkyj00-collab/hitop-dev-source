@@ -28,7 +28,15 @@
   "certs": ["조달청 등록", "벤처기업", "G-PASS 인증"],
   "nav": [
     { "label": "홈", "url": "/" },
-    { "label": "회사소개", "url": "/about/" },
+    {
+      "label": "회사소개",
+      "url": "/about/",
+      "children": [
+        { "label": "인사말", "url": "/about/" },
+        { "label": "연혁", "url": "/about/history/" },
+        { "label": "산업재산권 및 인증", "url": "/about/certifications/" }
+      ]
+    },
     {
       "label": "제품안내",
       "url": "#",

@@ -10,8 +10,9 @@
     <nav class="hidden items-center gap-10 md:flex lg:gap-12" aria-label="주 메뉴">
       {% for item in site.nav %}
         {% if item.children %}
+          {% set parentHref = item.url if item.url == "#" else item.url | url %}
           <div class="group relative">
-            <a href="{{ item.url }}" class="navbar-link flex items-center gap-1">
+            <a href="{{ parentHref }}" class="navbar-link flex items-center gap-1">
               {{ item.label }}
               <span class="material-symbols-outlined text-base" aria-hidden="true">expand_more</span>
             </a>

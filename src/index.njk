@@ -232,44 +232,37 @@ bodyClass: bg-surface text-ink
       <div class="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p class="font-display text-[0.65rem] font-bold uppercase tracking-[0.25em] text-secondary/80">Registered Patents</p>
-          <p class="mt-2 text-2xl font-extrabold text-ink">등록 특허 <span class="font-display text-primary">5</span>건 보유</p>
+          <p class="mt-2 text-2xl font-extrabold text-ink">등록 특허 <span class="font-display text-primary">{{ company.patents | length }}</span>건 보유</p>
           <p class="mt-1.5 text-sm text-secondary">신축이음장치 분야 독자 기술</p>
         </div>
-        <a href="{{ '/about/#patents' | url }}" class="group inline-flex items-center gap-2 font-display text-[0.75rem] font-bold uppercase tracking-[0.18em] text-primary transition-colors hover:text-accent">
+        <a href="{{ '/about/certifications/' | url }}" class="group inline-flex items-center gap-2 font-display text-[0.75rem] font-bold uppercase tracking-[0.18em] text-primary transition-colors hover:text-accent">
           특허 목록 보기
           <span class="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
         </a>
       </div>
       <div class="mt-6 grid grid-cols-5 gap-2.5 sm:gap-3" aria-label="특허증">
-        {% for p in ["2375750", "2401961", "2503300", "2622949", "2671452"] %}
+        {% for p in company.patents %}
           <figure>
             <div class="overflow-hidden rounded-md ring-1 ring-line transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-              <img src="{{ ('/images/certs/patent-' ~ p ~ '.jpg') | url }}" alt="특허증 제10-{{ p }}호" title="특허증 제10-{{ p }}호"
+              <img src="{{ ('/images/certs/' ~ p.img ~ '-sm.jpg') | url }}" alt="특허증 제{{ p.no }}호 {{ p.title }}" title="특허증 제{{ p.no }}호"
                    class="aspect-[210/297] w-full object-cover object-top" loading="lazy"
                    onerror="this.closest('figure').style.display='none'">
             </div>
-            <figcaption class="mt-1.5 hidden text-center font-display text-[0.6rem] font-bold tracking-wide text-secondary/70 sm:block">10-{{ p }}</figcaption>
+            <figcaption class="mt-1.5 hidden text-center font-display text-[0.6rem] font-bold tracking-wide text-secondary/70 sm:block">{{ p.no }}</figcaption>
           </figure>
         {% endfor %}
       </div>
     </div>
 
-    <!-- 우: 인증 6종 — 넘버드 리스트 -->
+    <!-- 우: 공식 인증 — 넘버드 리스트 -->
     <div class="lg:col-span-5">
-      {% set certs = [
-        { n: "조달청 등록제품", s: "나라장터 우수제품" },
-        { n: "벤처기업", s: "혁신성장유형 ~2026.11.07" },
-        { n: "창업기업", s: "중소벤처기업부 인증" },
-        { n: "장애인기업", s: "장애인기업 확인서" },
-        { n: "G-PASS", s: "해외조달시장 진출 유망기업" },
-        { n: "중소기업", s: "중소기업 확인서" }
-      ] %}
+      {% set certs = company.certifications | rejectattr("hold") %}
       {% for c in certs %}
         <div class="group flex items-baseline justify-between gap-4 border-b border-line py-[1.06rem] transition-colors duration-300 hover:border-accent/40 {% if loop.first %}border-t{% endif %}">
           <h3 class="flex items-baseline gap-3.5 text-[0.95rem] font-bold text-ink">
-            <span class="font-display text-xs font-bold text-ink/25 transition-colors duration-300 group-hover:text-accent">0{{ loop.index }}</span>{{ c.n }}
+            <span class="font-display text-xs font-bold text-ink/25 transition-colors duration-300 group-hover:text-accent">0{{ loop.index }}</span>{{ c.name }}
           </h3>
-          <p class="text-right text-xs text-secondary/80">{{ c.s }}</p>
+          <p class="text-right text-xs text-secondary/80">{{ c.period }}</p>
         </div>
       {% endfor %}
     </div>
