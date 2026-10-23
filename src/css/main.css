@@ -166,7 +166,7 @@
   .navbar.is-scrolled { @apply shadow-[0_4px_30px_rgba(25,28,29,0.08)]; }
   .navbar-logo-img { @apply h-10 w-auto object-contain; }
   .navbar-link {
-    @apply relative font-sans text-base font-semibold text-secondary transition-colors
+    @apply relative whitespace-nowrap font-sans text-base font-semibold text-secondary transition-colors
            duration-300 hover:text-ink;
   }
   .navbar-link::after {
@@ -184,9 +184,25 @@
   }
   .group:hover .nav-dropdown { @apply visible translate-y-0 opacity-100; }
   .nav-dropdown a {
-    @apply block rounded-md px-4 py-2.5 text-sm font-medium text-secondary
+    @apply block rounded-md px-4 py-2.5 text-center text-sm font-medium text-secondary
            transition-colors hover:bg-surface-low hover:text-ink;
   }
+
+  /* 언어 전환 (KOR | ENG) */
+  .lang-switch { @apply items-center font-display text-[0.7rem] font-bold tracking-[0.14em]; }
+  .lang-switch a { @apply px-2 py-1 text-secondary/55 transition-colors hover:text-ink; }
+  .lang-switch a + a { @apply border-l border-line; }
+  .lang-switch a.is-active { @apply text-ink; }
+
+  /* 온라인문의 양식 */
+  .form-field { @apply flex flex-col gap-2; }
+  .form-label { @apply text-xs font-bold text-ink; }
+  .form-label em { @apply not-italic text-accent; }
+  .form-input {
+    @apply w-full rounded-md border border-line bg-white px-4 py-3 text-sm text-ink outline-none
+           transition-colors placeholder:text-secondary/50 focus:border-accent;
+  }
+  .inquiry-form.is-invalid .form-input:invalid { @apply border-accent bg-accent/[0.03]; }
 
   /* ── 스펙/재료 테이블 (제품 페이지) ── */
   .spec-table-wrap { @apply overflow-x-auto rounded-lg ring-1 ring-line; }
@@ -239,6 +255,10 @@
            text-secondary transition-colors duration-200 hover:border-ink/30 hover:text-ink;
   }
   .filter-pill.is-active { @apply border-accent bg-accent text-white; }
+
+  /* 납품현장 목록 열 — 행마다 독립 grid이므로 열 폭을 고정해 모든 행의 시작선을 맞춘다
+     (발주기관 열은 가장 긴 기관명이 한 줄에 들어가는 폭) */
+  .delivery-cols { @apply lg:grid-cols-[3rem_15.5rem_minmax(0,1fr)_9.5rem]; }
 
   /* 납품현장 모델 규격 칩 */
   .delivery-model {

@@ -1,6 +1,10 @@
 ---
 layout: layouts/base.njk
-permalink: delivery.html
+pagination:
+  data: locales
+  size: 1
+  alias: lang
+permalink: "{{ '' if lang == 'ko' else 'en/' }}delivery.html"
 title: 납품실적
 description: 전국의 교량과 도로 현장에 공급한 하이탑 교량이음장치 대표 납품실적을 소개합니다.
 bodyClass: bg-surface text-ink
@@ -8,21 +12,21 @@ bodyClass: bg-surface text-ink
 
 <section class="relative mt-20 h-[36vh] min-h-[280px] max-h-[380px] overflow-hidden bg-night">
   <picture class="absolute inset-0 block h-full w-full">
-    <source media="(min-width: 768px)" srcset="{{ '/images/delivery/joint-installation.jpg' | url }}">
-    <img src="{{ '/images/delivery/joint-complete.jpg' | url }}" alt="교량이음장치 설치 및 시공 현장"
+    <source media="(min-width: 768px)" srcset="{{ '/images/delivery/joint-installation.jpg' | lurl }}">
+    <img src="{{ '/images/delivery/joint-complete.jpg' | lurl }}" alt="{{ '교량이음장치 설치 및 시공 현장' | t }}"
          class="h-full w-full object-cover object-[center_42%]" width="1400" height="1050" fetchpriority="high">
   </picture>
   <div class="absolute inset-0 bg-night/48"></div>
   <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-night/75 to-transparent"></div>
 
   <div class="container-hi relative z-10 flex h-full flex-col justify-end pb-9 text-white sm:pb-11">
-    <nav aria-label="브레드크럼" class="mb-5 flex items-center gap-1.5 text-sm text-white/60">
-      <a href="{{ '/' | url }}" class="transition-colors hover:text-white">홈</a>
+    <nav aria-label="{{ '브레드크럼' | t }}" class="mb-5 flex items-center gap-1.5 text-sm text-white/60">
+      <a href="{{ '/' | lurl }}" class="transition-colors hover:text-white">{{ "홈" | t }}</a>
       <span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span>
-      <span aria-current="page" class="text-white/90">납품실적</span>
+      <span aria-current="page" class="text-white/90">{{ "납품실적" | t }}</span>
     </nav>
     <span class="eyebrow-line !text-white/60">Project Reference</span>
-    <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_18px_rgba(11,14,19,0.45)] sm:text-4xl">납품실적</h1>
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_18px_rgba(11,14,19,0.45)] sm:text-4xl">{{ "납품실적" | t }}</h1>
   </div>
 </section>
 
@@ -32,25 +36,24 @@ bodyClass: bg-surface text-ink
     <div class="grid items-end gap-7 lg:grid-cols-12 lg:gap-12">
       <div class="lg:col-span-7">
         <span class="eyebrow-line">Delivery Record</span>
-        <h2 class="mt-4 text-3xl font-extrabold leading-snug text-ink sm:text-4xl">현장과 규격으로 확인하는 납품 이력</h2>
+        <h2 class="mt-4 text-3xl font-extrabold leading-snug text-ink sm:text-4xl">{{ "현장과 규격으로 확인하는 납품 이력" | t }}</h2>
       </div>
       <p class="border-t border-ink/15 pt-5 leading-relaxed text-secondary lg:col-span-5">
-        홈페이지에 공개된 대표 실적을 기준으로 발주기관과 현장명, 적용 모델을 정리했습니다.
-        아래 목록에서 기관·현장·제품 규격을 직접 검색할 수 있습니다.
+        {{ "홈페이지에 공개된 대표 실적을 기준으로 발주기관과 현장명, 적용 모델을 정리했습니다. 아래 목록에서 기관·현장·제품 규격을 직접 검색할 수 있습니다." | t }}
       </p>
     </div>
 
     <dl class="mt-10 grid border-y border-ink/15 sm:grid-cols-3">
       <div class="flex items-end justify-between gap-4 border-b border-line py-6 sm:border-b-0 sm:border-r sm:pr-7">
-        <dt class="text-sm font-bold text-secondary">공개 대표 현장</dt>
+        <dt class="text-sm font-bold text-secondary">{{ "공개 대표 현장" | t }}</dt>
         <dd class="font-display text-4xl font-extrabold tracking-tight text-primary">{{ products.delivery.length }}</dd>
       </div>
       <div class="flex items-end justify-between gap-4 border-b border-line py-6 sm:border-b-0 sm:border-r sm:px-7">
-        <dt class="text-sm font-bold text-secondary">발주기관</dt>
+        <dt class="text-sm font-bold text-secondary">{{ "발주기관" | t }}</dt>
         <dd class="font-display text-4xl font-extrabold tracking-tight text-primary">{{ products.deliveryMeta.clientCount }}</dd>
       </div>
       <div class="flex items-end justify-between gap-4 py-6 sm:pl-7">
-        <dt class="text-sm font-bold text-secondary">적용 규격</dt>
+        <dt class="text-sm font-bold text-secondary">{{ "적용 규격" | t }}</dt>
         <dd class="font-display text-4xl font-extrabold tracking-tight text-primary">{{ products.deliveryMeta.modelCount }}</dd>
       </div>
     </dl>
@@ -59,25 +62,25 @@ bodyClass: bg-surface text-ink
 
 <!-- ══ 납품현장 목록 ══ -->
 <section class="section container-hi" data-delivery-index>
-  <div class="grid gap-10 lg:grid-cols-12 lg:gap-14">
-    <div class="lg:col-span-4">
-      <div class="lg:sticky lg:top-28">
+  <div class="grid gap-10 xl:grid-cols-12 xl:gap-14">
+    <div class="xl:col-span-4">
+      <div class="xl:sticky xl:top-28">
         <span class="eyebrow-line">Project Index</span>
-        <h2 class="mt-3 text-3xl font-extrabold text-ink">대표 납품현장</h2>
+        <h2 class="mt-3 text-3xl font-extrabold text-ink">{{ "대표 납품현장" | t }}</h2>
         <p class="mt-4 max-w-sm text-sm leading-relaxed text-secondary">
-          발주기관, 현장명 또는 제품 규격으로 실적을 검색할 수 있습니다.
+          {{ "발주기관, 현장명 또는 제품 규격으로 실적을 검색할 수 있습니다." | t }}
         </p>
 
         <label class="delivery-search mt-8 flex items-center gap-3 border-b border-ink/30 pb-3 transition-colors focus-within:border-accent">
           <span class="material-symbols-outlined text-xl text-secondary" aria-hidden="true">search</span>
-          <span class="sr-only">납품현장 검색</span>
-          <input type="search" placeholder="발주기관 · 현장명 · 규격 검색"
+          <span class="sr-only">{{ "납품현장 검색" | t }}</span>
+          <input type="search" placeholder="{{ '발주기관 · 현장명 · 규격 검색' | t }}"
                  class="min-w-0 flex-1 bg-transparent text-sm text-ink outline-none placeholder:text-secondary/60"
                  data-delivery-search>
         </label>
 
-        <div class="mt-6 flex flex-wrap gap-2" aria-label="제품군 필터" data-delivery-filters>
-          <button type="button" class="filter-pill is-active" data-delivery-filter="all" aria-pressed="true">전체</button>
+        <div class="mt-6 flex flex-wrap gap-2" aria-label="{{ '제품군 필터' | t }}" data-delivery-filters>
+          <button type="button" class="filter-pill is-active" data-delivery-filter="all" aria-pressed="true">{{ "전체" | t }}</button>
           <button type="button" class="filter-pill" data-delivery-filter="NFJ" aria-pressed="false">New Finger</button>
           <button type="button" class="filter-pill" data-delivery-filter="NMC" aria-pressed="false">Monocell</button>
           <button type="button" class="filter-pill" data-delivery-filter="SFJ" aria-pressed="false">Steel Finger</button>
@@ -86,13 +89,13 @@ bodyClass: bg-surface text-ink
 
         <div class="mt-8 flex items-baseline gap-2 border-t border-line pt-5">
           <span class="font-display text-3xl font-extrabold text-primary" data-delivery-count>{{ products.delivery.length }}</span>
-          <span class="text-sm text-secondary">개 현장 표시</span>
+          <span class="text-sm text-secondary">{{ "개 현장 표시" | t }}</span>
         </div>
       </div>
     </div>
 
-    <div class="lg:col-span-8" data-delivery-list>
-      <div class="hidden grid-cols-[3.5rem_minmax(0,0.9fr)_minmax(0,1.3fr)_auto] gap-5 border-b border-ink/25 pb-3 font-display text-[0.62rem] font-bold uppercase tracking-[0.18em] text-secondary/70 md:grid">
+    <div class="xl:col-span-8" data-delivery-list>
+      <div class="delivery-cols hidden gap-5 border-b border-ink/25 pb-3 font-display text-[0.62rem] font-bold uppercase tracking-[0.18em] text-secondary/70 lg:grid">
         <span>No.</span>
         <span>Client</span>
         <span>Project</span>
@@ -100,14 +103,17 @@ bodyClass: bg-surface text-ink
       </div>
 
       {% for project in products.delivery %}
-        <article class="group grid gap-3 border-b border-line py-6 transition-colors duration-300 hover:border-ink/30 md:grid-cols-[3.5rem_minmax(0,0.9fr)_minmax(0,1.3fr)_auto] md:items-center md:gap-5"
+        {% set client = project.client | t %}
+        {% set siteName = project.site | t %}
+        <article class="delivery-cols group grid gap-3 border-b border-line py-6 transition-colors duration-300 hover:border-ink/30 lg:items-center lg:gap-5"
                  data-delivery-row
                  data-models="{{ project.models | join(' ') }}"
-                 data-search="{{ project.client }} {{ project.site }} {{ project.models | join(' ') }}">
+                 data-search="{{ client }} {{ siteName }} {% if lang == 'en' %}{{ project.client }} {{ project.site }} {% endif %}{{ project.models | join(' ') }}">
           <span class="font-display text-xs font-bold tracking-[0.16em] text-ink/25 transition-colors group-hover:text-accent">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
-          <p class="text-sm font-bold leading-relaxed text-ink">{{ project.client }}</p>
-          <h3 class="text-[0.95rem] font-semibold leading-relaxed text-ink/85">{{ project.site }}</h3>
-          <div class="flex flex-wrap gap-1.5 md:max-w-[180px] md:justify-end">
+          {# 국문 기관명은 한 줄 유지(가장 긴 기관명 기준으로 열 폭 고정), 영문은 길어서 줄바꿈 허용 #}
+          <p class="text-sm font-bold leading-relaxed text-ink {% if lang != 'en' %}lg:whitespace-nowrap{% endif %}">{{ client }}</p>
+          <h3 class="text-[0.95rem] font-semibold leading-relaxed text-ink/85">{{ siteName }}</h3>
+          <div class="flex flex-wrap gap-1.5 lg:justify-end">
             {% for model in project.models %}
               <span class="delivery-model">{{ model }}</span>
             {% endfor %}
@@ -117,13 +123,13 @@ bodyClass: bg-surface text-ink
 
       <div class="hidden border-b border-line py-16 text-center" data-delivery-empty>
         <span class="material-symbols-outlined text-3xl text-secondary/50" aria-hidden="true">search_off</span>
-        <p class="mt-3 text-sm font-bold text-ink">검색 결과가 없습니다</p>
-        <p class="mt-1 text-xs text-secondary">다른 발주기관, 현장명 또는 규격으로 검색해 보세요.</p>
+        <p class="mt-3 text-sm font-bold text-ink">{{ "검색 결과가 없습니다" | t }}</p>
+        <p class="mt-1 text-xs text-secondary">{{ "다른 발주기관, 현장명 또는 규격으로 검색해 보세요." | t }}</p>
       </div>
 
       <div class="mt-6 flex items-start gap-3 rounded-lg bg-section px-5 py-4 text-xs leading-relaxed text-secondary">
         <span class="material-symbols-outlined mt-px text-base text-primary" aria-hidden="true">info</span>
-        <p>홈페이지 공개용 대표 납품실적입니다. 세부 납품 내역과 현장 조건별 적용 제품은 별도로 문의해 주세요.</p>
+        <p>{{ "홈페이지 공개용 대표 납품실적입니다. 세부 납품 내역과 현장 조건별 적용 제품은 별도로 문의해 주세요." | t }}</p>
       </div>
     </div>
   </div>

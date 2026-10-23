@@ -9,6 +9,8 @@
 - `.github/workflows/publish.yml` builds and publishes only `_site/` output to `jmkyj00-collab/dev-hitop` on main pushes. Pull requests build without publishing.
 - `DEPLOY_SSH_KEY` is a GitHub Actions secret; never write private keys into source files.
 - This repository does not deploy to Sites.
+- Every page template renders twice (ko at `/…`, en at `/en/…`) via `pagination` over `src/_data/locales.json`. Write Korean in templates/data and output it with `| t`; English comes from `src/i18n/en/*.json` keyed by the exact Korean string. Use `| lurl` for internal links. The build lists untranslated strings as `[i18n]` warnings — keep that list empty.
+- `scripts/sync-deployment.mjs` allowlists published paths. Adding a new page requires adding its path (ko and `en/`) to `PAGE` there, or the deploy fails.
 
 This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
 

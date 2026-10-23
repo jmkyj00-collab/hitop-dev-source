@@ -161,7 +161,7 @@
         "installAlt": "계단에 시공된 다이아패턴 세라믹 논슬립",
         "models": [
           { "name": "HT-64DS 다이아패턴", "codes": [{ "no": "25486725" }], "spec": "1000 × 64 × t2.5mm", "img": "/images/products/nonslip/ht-64ds.jpg" },
-          { "name": "HT-62DA / HT-67DA 다이아패턴", "codes": [{ "label": "HT-62DA", "no": "25571141" }, { "label": "HT-67DA", "no": "25486724" }], "spec": "HT-62DA 1000 × 62 × t2.5mm · 앞발길이 20mm / HT-67DA 1000 × 67 × t2.5mm · 앞발길이 25mm", "img": "/images/products/nonslip/ht-62da.jpg" },
+          { "name": "HT-62DA / HT-67DA 다이아패턴", "codes": [{ "label": "HT-62DA", "no": "25571141" }, { "label": "HT-67DA", "no": "25486724" }], "spec": ["HT-62DA 1000 × 62 × t2.5mm · 앞발길이 20mm", "HT-67DA 1000 × 67 × t2.5mm · 앞발길이 25mm"], "img": "/images/products/nonslip/ht-62da.jpg" },
           { "name": "HT-62A", "codes": [{ "no": "25583820" }], "spec": "1000 × 62 × t2.5mm · 앞발길이 20mm", "img": "/images/products/nonslip/ht-62a.jpg" },
           { "name": "HT-62LAA (축광)", "codes": [{ "no": "26011580" }], "spec": "1000 × 62 × t2mm · 앞발길이 20mm", "img": "/images/products/nonslip/ht-62laa.jpg" },
           { "name": "HT-70S", "codes": [{ "no": "25571142" }], "spec": "1000 × 70 × t2.5mm", "img": "/images/products/nonslip/ht-70s.jpg" },
@@ -201,7 +201,7 @@
         "install": "/images/products/nonslip/install/sus-ceramic.jpg",
         "installAlt": "계단에 시공된 스테인리스 세라믹 논슬립",
         "models": [
-          { "name": "HT-65 / HT-75", "codes": [], "spec": "HT-65 W 65mm · H 25mm · T 2mm / HT-75 W 75mm · H 25mm · T 2mm", "img": "/images/products/nonslip/sus-ceramic-65-75.jpg" },
+          { "name": "HT-65 / HT-75", "codes": [], "spec": ["HT-65 W 65mm · H 25mm · T 2mm", "HT-75 W 75mm · H 25mm · T 2mm"], "img": "/images/products/nonslip/sus-ceramic-65-75.jpg" },
           { "name": "HT-75", "codes": [], "spec": "W 75mm · H 25mm · T 2mm", "img": "/images/products/nonslip/sus-ceramic-75.jpg" }
         ],
         "notes": []

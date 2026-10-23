@@ -1,38 +1,45 @@
+{% set navLang = page | pageLang %}
+{% set koPageUrl = page.url | altLangUrl("ko") %}
 <header class="navbar" data-navbar>
   <div class="container-hi flex h-full items-center justify-between">
 
     <!-- 로고 -->
-    <a href="{{ '/' | url }}" class="flex items-center" aria-label="{{ site.name }} 홈">
-      <img src="{{ '/images/brand/logo.png' | url }}" alt="{{ site.name }}" class="navbar-logo-img">
+    <a href="{{ '/' | lurl }}" class="flex items-center" aria-label="{{ site.name | t }} {{ '홈' | t }}">
+      <img src="{{ '/images/brand/logo.png' | url }}" alt="{{ site.name | t }}" class="navbar-logo-img">
     </a>
 
-    <!-- 데스크톱·태블릿 메뉴 -->
-    <nav class="hidden items-center gap-10 md:flex lg:gap-12" aria-label="주 메뉴">
+    <!-- 데스크톱 메뉴 (메뉴 5개 + 언어 전환이 들어가므로 lg 미만은 모바일 메뉴 사용) -->
+    <nav class="hidden items-center gap-7 lg:flex xl:gap-12" aria-label="{{ '주 메뉴' | t }}">
       {% for item in site.nav %}
         {% if item.children %}
-          {% set parentHref = item.url if item.url == "#" else item.url | url %}
+          {% set parentHref = item.url if item.url == "#" else item.url | lurl %}
           <div class="group relative">
             <a href="{{ parentHref }}" class="navbar-link flex items-center gap-1">
-              {{ item.label }}
+              {{ item.label | t }}
               <span class="material-symbols-outlined text-base" aria-hidden="true">expand_more</span>
             </a>
             <div class="nav-dropdown">
               {% for child in item.children %}
-                <a href="{{ child.url | url }}">{{ child.label }}</a>
+                <a href="{{ child.url | lurl }}">{{ child.label | t }}</a>
               {% endfor %}
             </div>
           </div>
         {% else %}
-          <a href="{{ item.url | url }}" class="navbar-link {% if page.url == item.url %}is-active{% endif %}">{{ item.label }}</a>
+          {# navEn: 상단 메뉴 폭이 좁아 영문 메뉴명만 짧게 쓸 때 (페이지 제목은 번역 사전 그대로) #}
+          <a href="{{ item.url | lurl }}" class="navbar-link {% if koPageUrl == item.url %}is-active{% endif %}">{{ item.navEn if (navLang == "en" and item.navEn) else (item.label | t) }}</a>
         {% endif %}
       {% endfor %}
     </nav>
 
     <!-- 우측 -->
     <div class="flex items-center gap-5">
-      <a href="{{ '/about/#location' | url }}" class="btn-accent hidden !px-5 !py-2.5 md:inline-flex">문의하기</a>
-      <button class="text-ink md:hidden" data-nav-toggle
-              aria-label="메뉴 열기" aria-controls="mobile-nav" aria-expanded="false">
+      <div class="lang-switch flex" aria-label="{{ '언어 선택' | t }}">
+        <a href="{{ page.url | altLangUrl('ko') | url }}" lang="ko" hreflang="ko" {% if navLang == "ko" %}aria-current="true" class="is-active"{% endif %}>KOR</a>
+        <a href="{{ page.url | altLangUrl('en') | url }}" lang="en" hreflang="en" {% if navLang == "en" %}aria-current="true" class="is-active"{% endif %}>ENG</a>
+      </div>
+      <a href="{{ '/support/inquiry/' | lurl }}" class="btn-accent hidden !px-5 !py-2.5 lg:inline-flex">{{ "문의하기" | t }}</a>
+      <button class="text-ink lg:hidden" data-nav-toggle
+              aria-label="{{ '메뉴 열기' | t }}" aria-controls="mobile-nav" aria-expanded="false">
         <span class="material-symbols-outlined" aria-hidden="true">menu</span>
       </button>
     </div>
@@ -40,18 +47,18 @@
 </header>
 
 <!-- 모바일 메뉴 패널 -->
-<div id="mobile-nav" class="fixed inset-0 z-40 hidden bg-white pt-20 md:hidden" data-mobile-nav>
-  <nav class="flex h-full flex-col items-center justify-center gap-6 text-lg font-bold text-ink" aria-label="모바일 메뉴">
+<div id="mobile-nav" class="fixed inset-0 z-40 hidden overflow-y-auto bg-white pt-20 lg:hidden" data-mobile-nav>
+  <nav class="flex min-h-full flex-col items-center justify-center gap-6 py-10 text-lg font-bold text-ink" aria-label="{{ '모바일 메뉴' | t }}">
     {% for item in site.nav %}
       {% if item.children %}
-        <span class="font-display text-xs font-bold uppercase tracking-[0.25em] text-secondary/70">{{ item.label }}</span>
+        <span class="font-display text-xs font-bold uppercase tracking-[0.25em] text-secondary/70">{{ item.label | t }}</span>
         {% for child in item.children %}
-          <a href="{{ child.url | url }}" class="transition-colors hover:text-accent">{{ child.label }}</a>
+          <a href="{{ child.url | lurl }}" class="transition-colors hover:text-accent">{{ child.label | t }}</a>
         {% endfor %}
       {% else %}
-        <a href="{{ item.url | url }}" class="transition-colors hover:text-accent">{{ item.label }}</a>
+        <a href="{{ item.url | lurl }}" class="transition-colors hover:text-accent">{{ item.label | t }}</a>
       {% endif %}
     {% endfor %}
-    <a href="{{ '/about/#location' | url }}" class="btn-accent mt-2">문의하기</a>
+    <a href="{{ '/support/inquiry/' | lurl }}" class="btn-accent mt-2">{{ "문의하기" | t }}</a>
   </nav>
 </div>

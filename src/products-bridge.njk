@@ -1,6 +1,10 @@
 ---
 layout: layouts/base.njk
-permalink: products-bridge.html
+pagination:
+  data: locales
+  size: 1
+  alias: lang
+permalink: "{{ '' if lang == 'ko' else 'en/' }}products-bridge.html"
 title: 교량이음장치
 description: 교량의 온도 변화·진동·하중에 의한 변위를 흡수하는 하이탑 교량이음장치 6개 제품군과 나라장터 물품식별번호·규격 안내.
 bodyClass: bg-surface text-ink
@@ -9,21 +13,21 @@ bodyClass: bg-surface text-ink
 <!-- ══ BRIDGE VISUAL — 다음 콘텐츠가 첫 화면에 함께 보이는 낮은 이미지 블록 ══ -->
 <section class="relative mt-20 h-[36vh] min-h-[280px] max-h-[380px] overflow-hidden bg-night">
   <picture class="absolute inset-0 block h-full w-full">
-    <source media="(min-width: 768px)" srcset="{{ '/images/delivery/joint-complete.jpg' | url }}">
-    <img src="{{ '/images/delivery/joint-installation.jpg' | url }}" alt="하이탑 교량이음장치 시공 현장"
+    <source media="(min-width: 768px)" srcset="{{ '/images/delivery/joint-complete.jpg' | lurl }}">
+    <img src="{{ '/images/delivery/joint-installation.jpg' | lurl }}" alt="{{ '하이탑 교량이음장치 시공 현장' | t }}"
          class="h-full w-full object-cover object-[center_52%]" fetchpriority="high">
   </picture>
   <div class="absolute inset-0 bg-night/45"></div>
   <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-night/70 to-transparent"></div>
 
   <div class="container-hi relative z-10 flex h-full flex-col justify-end pb-9 text-white sm:pb-11">
-    <nav class="mb-5 flex items-center gap-1.5 text-sm text-white/60" aria-label="브레드크럼">
-      <a href="{{ '/' | url }}" class="transition-colors hover:text-white">홈</a>
+    <nav class="mb-5 flex items-center gap-1.5 text-sm text-white/60" aria-label="{{ '브레드크럼' | t }}">
+      <a href="{{ '/' | lurl }}" class="transition-colors hover:text-white">{{ "홈" | t }}</a>
       <span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span>
-      <span class="text-white/90">교량이음장치</span>
+      <span class="text-white/90">{{ "교량이음장치" | t }}</span>
     </nav>
     <span class="eyebrow-line !text-white/60">Bridge Expansion Joint</span>
-    <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_18px_rgba(11,14,19,0.45)] sm:text-4xl">교량이음장치</h1>
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_18px_rgba(11,14,19,0.45)] sm:text-4xl">{{ "교량이음장치" | t }}</h1>
   </div>
 </section>
 
@@ -33,34 +37,38 @@ bodyClass: bg-surface text-ink
     <div class="grid items-end gap-7 lg:grid-cols-12 lg:gap-12">
       <div class="lg:col-span-7">
         <span class="eyebrow-line">Product Portfolio</span>
-        <h2 class="mt-4 text-3xl font-extrabold leading-snug text-ink sm:text-4xl">현장 조건에 맞춘 6개 제품군</h2>
+        <h2 class="mt-4 text-3xl font-extrabold leading-snug text-ink sm:text-4xl">{{ "현장 조건에 맞춘 6개 제품군" | t }}</h2>
       </div>
       <p class="border-t border-ink/15 pt-5 leading-relaxed text-secondary lg:col-span-5">
-        교량의 온도 변화·진동·하중에 의한 변위를 흡수하여 구조물을 보호하는 핵심 제품입니다.
-        아래 제품을 선택하면 제품별 특징과 적용 규격, 나라장터 물품식별번호를 바로 확인할 수 있습니다.
+        {{ "교량의 온도 변화·진동·하중에 의한 변위를 흡수하여 구조물을 보호하는 핵심 제품입니다. 아래 제품을 선택하면 제품별 특징과 적용 규격, 나라장터 물품식별번호를 바로 확인할 수 있습니다." | t }}
       </p>
     </div>
 
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {% for p in products.bridge %}
-        <a href="#{{ p.id }}" aria-label="{{ p.nameKo }} 상세 정보로 이동" class="group overflow-hidden rounded-xl bg-white ring-1 ring-line transition-all duration-300 hover:-translate-y-1 hover:ring-primary/25 hover:shadow-[0_18px_45px_rgba(25,28,29,0.11)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+        {% set imgAlt = p.nameEn if lang == "en" else (p.nameEn ~ " — " ~ p.nameKo) %}
+        <a href="#{{ p.id }}" aria-label="{% if lang == 'en' %}View details of {{ p.nameEn }}{% else %}{{ p.nameKo }} 상세 정보로 이동{% endif %}" class="group overflow-hidden rounded-xl bg-white ring-1 ring-line transition-all duration-300 hover:-translate-y-1 hover:ring-primary/25 hover:shadow-[0_18px_45px_rgba(25,28,29,0.11)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
           <div class="relative h-48 overflow-hidden {% if p.id == 'monocell' or p.id == 'finger-new' %}bg-white{% else %}bg-night{% endif %}">
             <span class="absolute left-5 top-4 z-10 font-display text-xs font-bold tracking-[0.18em] {% if p.id == 'monocell' or p.id == 'finger-new' %}text-ink/30{% else %}text-white/40{% endif %}">{{ p.num }}</span>
-            <img src="{{ p.img | url }}" alt="{{ p.nameEn }} — {{ p.nameKo }}"
+            <img src="{{ p.img | lurl }}" alt="{{ imgAlt }}"
                  class="h-full w-full object-contain p-5 transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy"
                  onerror="this.style.display='none'">
           </div>
           <div class="flex items-end justify-between gap-4 border-t border-line p-5 transition-colors duration-300 group-hover:bg-primary/[0.025]">
             <div>
               <h3 class="font-display text-lg font-extrabold text-ink">{{ p.nameEn }}</h3>
-              <p class="mt-1 text-sm text-secondary">{{ p.nameKo }}</p>
+              <p class="mt-1 text-sm text-secondary">{{ p.nameKo | t }}</p>
             </div>
             <div class="shrink-0 text-right">
               <span class="block font-display text-[0.62rem] font-bold uppercase tracking-[0.12em] text-secondary/70">
-                {% if p.spec.idCol is defined %}나라장터 {{ p.spec.rows | length }} 규격{% else %}표준 {{ p.spec.rows | length }} 규격{% endif %}
+                {% if lang == "en" %}
+                  {% if p.spec.idCol is defined %}{{ p.spec.rows | length }} G2B Models{% else %}{{ p.spec.rows | length }} Standard Models{% endif %}
+                {% else %}
+                  {% if p.spec.idCol is defined %}나라장터 {{ p.spec.rows | length }} 규격{% else %}표준 {{ p.spec.rows | length }} 규격{% endif %}
+                {% endif %}
               </span>
               <span class="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary">
-                제품 상세보기
+                {{ "제품 상세보기" | t }}
                 <span class="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
               </span>
             </div>
@@ -73,6 +81,7 @@ bodyClass: bg-surface text-ink
 
 <!-- ══ PRODUCT CHAPTERS — 모든 문구·규격은 products.json에서 직접 출력 ══ -->
 {% for p in products.bridge %}
+  {% set imgAlt = p.nameEn if lang == "en" else (p.nameEn ~ " — " ~ p.nameKo) %}
   <section id="{{ p.id }}" class="scroll-mt-20 border-b border-line {% if loop.index % 2 == 0 %}bg-white{% else %}bg-surface{% endif %}">
     <div class="container-hi py-20 lg:py-28">
       <header class="grid gap-6 border-b border-ink/15 pb-8 lg:grid-cols-12 lg:items-end">
@@ -83,7 +92,7 @@ bodyClass: bg-surface text-ink
             <span class="font-display text-[0.65rem] font-bold uppercase tracking-[0.22em] text-secondary/70">Bridge Expansion Joint</span>
           </div>
           <h2 class="mt-5 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl lg:text-5xl">{{ p.nameEn }}</h2>
-          <p class="mt-2 text-base font-semibold text-secondary">{{ p.nameKo }}</p>
+          <p class="mt-2 text-base font-semibold text-secondary">{{ p.nameKo | t }}</p>
         </div>
         <div class="flex flex-wrap gap-2 lg:col-span-4 lg:justify-end">
           {% if p.spec.idCol is defined %}
@@ -101,7 +110,7 @@ bodyClass: bg-surface text-ink
         <figure class="relative min-h-[320px] overflow-hidden rounded-2xl ring-1 ring-line sm:min-h-[400px] lg:col-span-6 {% if p.id == 'monocell' or p.id == 'finger-new' %}bg-white{% else %}bg-night{% endif %}">
           <div class="technical-grid absolute inset-0 {% if p.id == 'monocell' or p.id == 'finger-new' %}opacity-30{% else %}opacity-[0.08]{% endif %}"></div>
           <span class="absolute bottom-4 right-6 font-display text-[5.5rem] font-extrabold leading-none tracking-[-0.08em] {% if p.id == 'monocell' or p.id == 'finger-new' %}text-ink/[0.035]{% else %}text-white/[0.045]{% endif %}">{{ p.num }}</span>
-          <img src="{{ p.img | url }}" alt="{{ p.nameEn }} — {{ p.nameKo }}"
+          <img src="{{ p.img | lurl }}" alt="{{ imgAlt }}"
                class="relative z-10 h-full min-h-[320px] w-full object-contain p-7 sm:min-h-[400px] sm:p-12" loading="lazy"
                onerror="this.style.display='none'">
         </figure>
@@ -113,7 +122,7 @@ bodyClass: bg-surface text-ink
               {% for f in p.features %}
                 <div class="grid grid-cols-[2.75rem_1fr] gap-4 border-t border-ink/12 py-5 {% if loop.last %}border-b{% endif %}">
                   <span class="font-display text-xl font-extrabold tracking-tight text-ink/18">0{{ loop.index }}</span>
-                  <p class="text-[0.95rem] leading-relaxed text-ink/80">{{ f }}</p>
+                  <p class="text-[0.95rem] leading-relaxed text-ink/80">{{ f | t }}</p>
                 </div>
               {% endfor %}
             </div>
@@ -126,7 +135,7 @@ bodyClass: bg-surface text-ink
                 {% for pt in p.patents %}
                   <span class="chip-patent">
                     <span class="material-symbols-outlined !text-sm" aria-hidden="true" style="font-variation-settings:'FILL' 1">verified</span>
-                    특허 {{ pt }}
+                    {{ "특허" | t }} {{ pt }}
                   </span>
                 {% endfor %}
               </div>
@@ -140,18 +149,18 @@ bodyClass: bg-surface text-ink
           <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
             <div>
               <p class="font-display text-[0.62rem] font-bold uppercase tracking-[0.2em] text-secondary/70">Material List</p>
-              <h3 id="{{ p.id }}-materials" class="mt-2 text-xl font-extrabold text-ink">주요 구성 재료</h3>
+              <h3 id="{{ p.id }}-materials" class="mt-2 text-xl font-extrabold text-ink">{{ "주요 구성 재료" | t }}</h3>
             </div>
-            <span class="text-xs text-secondary">단위와 재질은 제품 데이터 기준</span>
+            <span class="text-xs text-secondary">{{ "단위와 재질은 제품 데이터 기준" | t }}</span>
           </div>
           <div class="spec-table-wrap bridge-table-wrap">
             <table class="spec-table bridge-spec-table">
               <thead>
-                <tr>{% for h in p.materials.head %}<th>{{ h }}</th>{% endfor %}</tr>
+                <tr>{% for h in p.materials.head %}<th>{{ h | t }}</th>{% endfor %}</tr>
               </thead>
               <tbody>
                 {% for row in p.materials.rows %}
-                  <tr>{% for c in row %}<td>{{ c }}</td>{% endfor %}</tr>
+                  <tr>{% for c in row %}<td>{{ c | t }}</td>{% endfor %}</tr>
                 {% endfor %}
               </tbody>
             </table>
@@ -163,30 +172,30 @@ bodyClass: bg-surface text-ink
         <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p class="font-display text-[0.62rem] font-bold uppercase tracking-[0.2em] text-secondary/70">Technical Specifications</p>
-            <h3 id="{{ p.id }}-specs" class="mt-2 text-xl font-extrabold text-ink">{{ p.specTitle or "규격 · Specifications" }}</h3>
+            <h3 id="{{ p.id }}-specs" class="mt-2 text-xl font-extrabold text-ink">{{ (p.specTitle or "규격 · Specifications") | t }}</h3>
           </div>
           {% if p.spec.idCol is defined %}
-            <p class="max-w-md text-right text-xs leading-relaxed text-secondary">강조된 번호는 나라장터에서 조회·발주할 수 있는 물품식별번호입니다.</p>
+            <p class="max-w-md text-right text-xs leading-relaxed text-secondary">{{ "강조된 번호는 나라장터에서 조회·발주할 수 있는 물품식별번호입니다." | t }}</p>
           {% endif %}
         </div>
 
         <div class="spec-table-wrap bridge-table-wrap">
           <table class="spec-table bridge-spec-table">
             <thead>
-              <tr>{% for h in p.spec.head %}<th>{{ h }}</th>{% endfor %}</tr>
+              <tr>{% for h in p.spec.head %}<th>{{ h | t }}</th>{% endfor %}</tr>
             </thead>
             <tbody>
               {% for row in p.spec.rows %}
                 <tr>
                   {% for c in row %}
-                    <td {% if p.spec.idCol is defined and p.spec.idCol == loop.index0 %}class="id-col"{% endif %}>{{ c }}</td>
+                    <td {% if p.spec.idCol is defined and p.spec.idCol == loop.index0 %}class="id-col"{% endif %}>{{ c | t }}</td>
                   {% endfor %}
                 </tr>
               {% endfor %}
             </tbody>
           </table>
         </div>
-        {% if p.note %}<p class="mt-4 border-l-2 border-accent pl-4 text-xs leading-relaxed text-secondary">{{ p.note }}</p>{% endif %}
+        {% if p.note %}<p class="mt-4 border-l-2 border-accent pl-4 text-xs leading-relaxed text-secondary">{{ p.note | t }}</p>{% endif %}
       </section>
     </div>
   </section>

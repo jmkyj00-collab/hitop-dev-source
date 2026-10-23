@@ -50,47 +50,12 @@
   ],
 
   "certifications": [
-    {
-      "name": "벤처기업 확인서",
-      "issuer": "벤처기업확인기관",
-      "period": "~ 2026.11.07",
-      "img": "cert-venture"
-    },
-    {
-      "name": "창업기업 확인서",
-      "issuer": "중소벤처기업부",
-      "period": "2024.01.04 ~ 2027.01.04",
-      "img": "cert-startup"
-    },
-    {
-      "name": "장애인기업 확인서",
-      "issuer": "중소벤처기업부",
-      "period": "2025.03.04 ~ 2028.03.03",
-      "img": "cert-disabled"
-    },
-    {
-      "name": "중소기업 확인서",
-      "issuer": "중소벤처기업부",
-      "period": "2026.04.01 ~ 2027.03.31",
-      "img": "cert-sme"
-    },
-    {
-      "name": "G-PASS 기업 지정서",
-      "issuer": "조달청 · 해외조달시장 진출 유망기업",
-      "period": "2026.03.19 ~ 2031.03.18",
-      "img": "cert-gpass"
-    },
-    {
-      "name": "직접생산확인증명서 (목재덱)",
-      "issuer": "중소기업유통센터",
-      "period": "2025.03.19 ~ 2027.03.18",
-      "img": "cert-direct-deck"
-    },
-    {
-      "name": "직접생산확인증명서 (교량이음장치)",
-      "issuer": "중소기업유통센터",
-      "period": "2024.10.04 ~ 2026.10.03",
-      "img": "cert-direct-bridge"
-    }
+    { "name": "벤처기업 확인서", "img": "cert-venture" },
+    { "name": "창업기업 확인서", "img": "cert-startup" },
+    { "name": "장애인기업 확인서", "img": "cert-disabled" },
+    { "name": "중소기업 확인서", "img": "cert-sme" },
+    { "name": "G-PASS 기업 지정서", "img": "cert-gpass" },
+    { "name": "직접생산확인증명서 (목재덱)", "img": "cert-direct-deck" },
+    { "name": "직접생산확인증명서 (교량이음장치)", "img": "cert-direct-bridge" }
   ]
 }

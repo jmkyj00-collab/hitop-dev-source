@@ -15,13 +15,14 @@
     "email": "yong91210@naver.com",
     "website": "www.hitop.kr",
     "zip": "34187",
-    "address": "대전광역시 유성구 계룡로105번길 15 한진오피스텔 11층 1110호"
+    "address": "대전광역시 유성구 계룡로105번길 15 한진오피스텔 11층 1110호",
+    "addressEn": "Rm. 1110, 11F, Hanjin Officetel, 15, Gyeryong-ro 105beon-gil, Yuseong-gu, Daejeon, Republic of Korea"
   },
   "branch": {
-    "name": "본사2",
-    "label": "Branch",
+    "name": "공장",
+    "label": "Factory",
     "zip": "31414",
-    "tel": "041-584-2011",
+    "tel": "041-584-2007",
     "address": "충청남도 아산시 음봉면 신의길208번길 17-49",
     "addressEn": "17-49, Sinui-gil 208beon-gil, Eumbong-myeon, Asan-si, Chungcheongnam-do, Republic of Korea"
   },
@@ -46,6 +47,14 @@
         { "label": "목재덱", "url": "/products-deck.html" }
       ]
     },
-    { "label": "납품실적", "url": "/delivery.html" }
+    { "label": "납품실적", "navEn": "Projects", "url": "/delivery.html" },
+    {
+      "label": "고객지원",
+      "url": "/support/notice/",
+      "children": [
+        { "label": "공지사항", "url": "/support/notice/" },
+        { "label": "온라인문의", "url": "/support/inquiry/" }
+      ]
+    }
   ]
 }

@@ -1,6 +1,10 @@
 ---
 layout: layouts/base.njk
-permalink: about/certifications/index.html
+pagination:
+  data: locales
+  size: 1
+  alias: lang
+permalink: "{{ '' if lang == 'ko' else 'en/' }}about/certifications/index.html"
 title: 산업재산권 및 인증
 description: 주식회사 하이탑이 보유한 신축이음장치 분야 등록 특허와 조달·기업 관련 공식 인증 내역입니다.
 bodyClass: bg-surface text-ink
@@ -9,47 +13,48 @@ bodyClass: bg-surface text-ink
 {% set visibleCerts = company.certifications | rejectattr("hold") %}
 
 <section class="relative mt-20 h-[36vh] min-h-[280px] max-h-[380px] overflow-hidden bg-night">
-  <img src="{{ '/images/hero/about-hero.webp' | url }}" alt="교량 구조와 기반시설을 표현한 이미지"
+  <img src="{{ '/images/hero/about-hero.webp' | lurl }}" alt="{{ '교량 구조와 기반시설을 표현한 이미지' | t }}"
        class="absolute inset-0 h-full w-full object-cover object-[center_54%]" width="1672" height="941" fetchpriority="high">
   <div class="absolute inset-0 bg-night/45"></div>
   <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-night/75 to-transparent"></div>
 
   <div class="container-hi relative z-10 flex h-full flex-col justify-end pb-9 text-white sm:pb-11">
-    <nav aria-label="브레드크럼" class="mb-5 flex items-center gap-1.5 text-sm text-white/60">
-      <a href="{{ '/' | url }}" class="transition-colors hover:text-white">홈</a>
+    <nav aria-label="{{ '브레드크럼' | t }}" class="mb-5 flex items-center gap-1.5 text-sm text-white/60">
+      <a href="{{ '/' | lurl }}" class="transition-colors hover:text-white">{{ "홈" | t }}</a>
       <span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span>
-      <a href="{{ '/about/' | url }}" class="transition-colors hover:text-white">회사소개</a>
+      <a href="{{ '/about/' | lurl }}" class="transition-colors hover:text-white">{{ "회사소개" | t }}</a>
       <span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span>
-      <span aria-current="page" class="text-white/90">산업재산권 및 인증</span>
+      <span aria-current="page" class="text-white/90">{{ "산업재산권 및 인증" | t }}</span>
     </nav>
     <span class="eyebrow-line !text-white/60">Patents &amp; Certifications</span>
-    <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_18px_rgba(11,14,19,0.45)] sm:text-4xl">산업재산권 및 인증</h1>
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_18px_rgba(11,14,19,0.45)] sm:text-4xl">{{ "산업재산권 및 인증" | t }}</h1>
   </div>
 </section>
 
 <div class="container-hi">
-  <nav class="cert-index" aria-label="문서 바로가기">
-    <a href="#patents">등록 특허 <span>{{ company.patents | length }}</span></a>
-    <a href="#certifications">공식 인증 <span>{{ visibleCerts | length }}</span></a>
-    <p>문서를 선택하면 크게 볼 수 있습니다.</p>
+  <nav class="cert-index" aria-label="{{ '문서 바로가기' | t }}">
+    <a href="#patents">{{ "등록 특허" | t }} <span>{{ company.patents | length }}</span></a>
+    <a href="#certifications">{{ "공식 인증" | t }} <span>{{ visibleCerts | length }}</span></a>
+    <p>{{ "문서를 선택하면 크게 볼 수 있습니다." | t }}</p>
   </nav>
 </div>
 
 <section id="patents" class="cert-section container-hi">
   <header class="cert-section-heading">
-    <h2>등록 특허 <span>{{ company.patents | length }}</span></h2>
-    <p>신축이음장치·인도교 분야의 등록 특허</p>
+    <h2>{{ "등록 특허" | t }} <span>{{ company.patents | length }}</span></h2>
+    <p>{{ "신축이음장치·인도교 분야의 등록 특허" | t }}</p>
   </header>
   <div class="cert-grid">
     {% for p in company.patents %}
+      {% set patentLabel = ("Patent No. " ~ p.no) if lang == "en" else ("특허증 제" ~ p.no ~ "호") %}
       <figure class="cert-item">
-        <a href="{{ ('/images/certs/' ~ p.img ~ '.jpg') | url }}" target="_blank" rel="noopener" class="cert-preview" aria-label="특허증 제{{ p.no }}호 크게 보기">
-          <img src="{{ ('/images/certs/' ~ p.img ~ '-sm.jpg') | url }}" alt="특허증 제{{ p.no }}호 {{ p.title }}" width="311" height="440" loading="lazy">
+        <a href="{{ ('/images/certs/' ~ p.img ~ '.jpg') | lurl }}" target="_blank" rel="noopener" class="cert-preview" aria-label="{{ patentLabel }} {{ '크게 보기' | t }}">
+          <img src="{{ ('/images/certs/' ~ p.img ~ '-sm.jpg') | lurl }}" alt="{{ patentLabel }} {{ p.title | t }}" width="311" height="440" loading="lazy">
         </a>
         <figcaption class="cert-caption">
-          <p class="cert-meta">{{ p.year }} · 등록 특허</p>
-          <h3>{{ p.title }}</h3>
-          <p class="cert-number">제{{ p.no }}호</p>
+          <p class="cert-meta">{{ p.year }} · {{ "등록 특허" | t }}</p>
+          <h3>{{ p.title | t }}</h3>
+          <p class="cert-number">{% if lang == "en" %}No. {{ p.no }}{% else %}제{{ p.no }}호{% endif %}</p>
         </figcaption>
       </figure>
     {% endfor %}
@@ -58,28 +63,26 @@ bodyClass: bg-surface text-ink
 
 <section id="certifications" class="cert-section container-hi">
   <header class="cert-section-heading">
-    <h2>공식 인증 <span>{{ visibleCerts | length }}</span></h2>
-    <p>기업 자격 및 직접생산 확인 자료</p>
+    <h2>{{ "공식 인증" | t }} <span>{{ visibleCerts | length }}</span></h2>
+    <p>{{ "기업 자격 및 직접생산 확인 자료" | t }}</p>
   </header>
   <div class="cert-grid">
     {% for c in visibleCerts %}
       <article class="cert-item">
         {% if c.img %}
-          <a href="{{ ('/images/certs/' ~ c.img ~ '.jpg') | url }}" target="_blank" rel="noopener" class="cert-preview" aria-label="{{ c.name }} 크게 보기">
-            <img src="{{ ('/images/certs/' ~ c.img ~ '-sm.jpg') | url }}" alt="{{ c.name }}" width="311" height="440" loading="lazy">
+          <a href="{{ ('/images/certs/' ~ c.img ~ '.jpg') | lurl }}" target="_blank" rel="noopener" class="cert-preview" aria-label="{{ c.name | t }} {{ '크게 보기' | t }}">
+            <img src="{{ ('/images/certs/' ~ c.img ~ '-sm.jpg') | lurl }}" alt="{{ c.name | t }}" width="311" height="440" loading="lazy">
           </a>
         {% else %}
-          <div class="cert-preview"><p>인증서 이미지 준비 중</p></div>
+          <div class="cert-preview"><p>{{ "인증서 이미지 준비 중" | t }}</p></div>
         {% endif %}
-        <div class="cert-caption">
-          <h3>{{ c.name }}</h3>
-          <p class="cert-meta">{{ c.issuer }}</p>
-          <p class="cert-number">{{ c.period }}</p>
+        <div class="cert-caption text-center">
+          <h3>{{ c.name | t }}</h3>
         </div>
       </article>
     {% endfor %}
   </div>
-  <p class="mt-8 border-t border-line pt-5 text-xs leading-relaxed text-secondary">게시된 문서는 주소를 가린 공개용 사본입니다. 원본 확인이 필요하시면 문의해 주시기 바랍니다.</p>
+  <p class="mt-8 border-t border-line pt-5 text-xs leading-relaxed text-secondary">{{ "게시된 문서는 주소를 가린 공개용 사본입니다. 원본 확인이 필요하시면 문의해 주시기 바랍니다." | t }}</p>
 </section>
 
 {% set ctaTitle = "인증 사본이나 시험성적서가 필요하신가요?" %}
