@@ -47,14 +47,6 @@
         { "label": "목재덱", "url": "/products-deck.html" }
       ]
     },
-    { "label": "납품실적", "navEn": "Projects", "url": "/delivery.html" },
-    {
-      "label": "고객지원",
-      "url": "/support/notice/",
-      "children": [
-        { "label": "공지사항", "url": "/support/notice/" },
-        { "label": "온라인문의", "url": "/support/inquiry/" }
-      ]
-    }
+    { "label": "납품실적", "url": "/delivery.html" }
   ]
 }

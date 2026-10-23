@@ -194,16 +194,6 @@
   .lang-switch a + a { @apply border-l border-line; }
   .lang-switch a.is-active { @apply text-ink; }
 
-  /* 온라인문의 양식 */
-  .form-field { @apply flex flex-col gap-2; }
-  .form-label { @apply text-xs font-bold text-ink; }
-  .form-label em { @apply not-italic text-accent; }
-  .form-input {
-    @apply w-full rounded-md border border-line bg-white px-4 py-3 text-sm text-ink outline-none
-           transition-colors placeholder:text-secondary/50 focus:border-accent;
-  }
-  .inquiry-form.is-invalid .form-input:invalid { @apply border-accent bg-accent/[0.03]; }
-
   /* ── 스펙/재료 테이블 (제품 페이지) ── */
   .spec-table-wrap { @apply overflow-x-auto rounded-lg ring-1 ring-line; }
   .spec-table { @apply w-full border-collapse text-sm whitespace-nowrap; }

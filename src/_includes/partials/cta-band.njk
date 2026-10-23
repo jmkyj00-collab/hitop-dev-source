@@ -8,7 +8,7 @@
       </div>
       <div class="flex flex-wrap items-center gap-4">
         <a href="tel:{{ site.contact.tel }}" class="font-display text-2xl font-extrabold text-white transition-opacity hover:opacity-80">{{ site.contact.tel }}</a>
-        <a href="{{ '/support/inquiry/' | lurl }}" class="btn-light">{{ "문의하기" | t }}</a>
+        <a href="{{ '/about/#location' | lurl }}" class="btn-light">{{ "문의하기" | t }}</a>
         {% if ctaSecondary %}
           <a href="{{ ctaSecondary.url | lurl }}" class="btn-outline-white">{{ ctaSecondary.label | t }}</a>
         {% endif %}

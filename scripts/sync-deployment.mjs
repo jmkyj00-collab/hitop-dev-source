@@ -7,6 +7,7 @@ const source = path.resolve(sourceArg);
 const target = path.resolve(targetArg);
 if (source === target || target.startsWith(source + path.sep) || source.startsWith(target + path.sep)) throw new Error('Source and target must be separate directories');
 // 페이지는 국문 경로와 같은 구조의 영문(en/) 경로를 함께 허용
+// support/ 는 현재 없는 페이지지만, 이전 배포 manifest에 남은 파일을 검증·정리하려면 허용 목록에 있어야 한다
 const PAGE = /^(?:en\/)?(?:index\.html|delivery\.html|products-(?:bridge|deck|nonslip)\.html|about\/(?:history\/|certifications\/)?index\.html|support\/(?:notice|inquiry)\/index\.html)$/;
 const ASSET = /^(?:css|js|images)\/.+$/;
 const allowed = p => (PAGE.test(p) || ASSET.test(p)) && !p.split('/').some(s => s === '..' || s.startsWith('.'));
