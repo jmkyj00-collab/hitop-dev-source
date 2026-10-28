@@ -17,9 +17,10 @@
       </div>
     </div>
 
-    <!-- 중단: 링크 -->
-    <div class="grid grid-cols-2 gap-10 py-12 md:grid-cols-4">
-      <div class="col-span-2 md:col-span-2">
+    <!-- 중단: 회사·공장 정보 + 링크
+         모바일: 회사 / 공장 / (제품 | 바로가기)  ·  sm~lg: (회사 | 공장) / (제품 | 바로가기)  ·  lg 이상: 한 줄 4칸 -->
+    <div class="grid grid-cols-2 gap-10 py-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)_auto_auto] lg:gap-x-12">
+      <div class="col-span-2 sm:col-span-1">
         <h5 class="mb-4 font-display text-[0.7rem] font-bold uppercase tracking-[0.25em] text-secondary/80">Company</h5>
         <p class="text-sm leading-relaxed">
           {{ site.contact.addressEn if footerLang == "en" else site.contact.address }}<br>
@@ -27,6 +28,14 @@
           Tel: {{ site.contact.tel }} · Fax: {{ site.contact.fax }}
         </p>
         <p class="mt-4 font-display text-xs uppercase tracking-wider text-secondary/70">{% for c in site.certs %}{{ c | t }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+      </div>
+
+      <div class="col-span-2 sm:col-span-1">
+        <h5 class="mb-4 font-display text-[0.7rem] font-bold uppercase tracking-[0.25em] text-secondary/80">Factory</h5>
+        <p class="text-sm leading-relaxed">
+          {{ site.branch.addressEn if footerLang == "en" else site.branch.address }}<br>
+          Tel: {{ site.branch.tel }}
+        </p>
       </div>
 
       <div>

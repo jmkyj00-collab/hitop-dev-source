@@ -72,6 +72,13 @@ export default function (eleventyConfig) {
     return url.call(this, langOf(this.page) === "en" ? `/en${href}` : href);
   });
 
+  // 특허번호 "(제10-2375750호)" / "(No. 10-2375750)"가 하이픈에서 줄바꿈되지 않게 묶는다 (출력은 | safe)
+  eleventyConfig.addFilter("keepPatentNo", (text) =>
+    String(text)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/\((?:제|No\. )\d{2}-\d{7}호?\)/g, (m) => `<span class="nowrap">${m}</span>`)
+  );
+
   // 언어 전환 링크: 같은 페이지의 다른 언어 주소
   eleventyConfig.addFilter("altLangUrl", function (pageUrl, target) {
     const base = pageUrl.startsWith("/en/") ? pageUrl.slice(3) : pageUrl;
