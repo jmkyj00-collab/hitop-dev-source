@@ -109,7 +109,6 @@ bodyClass: bg-surface text-ink
       <div class="mt-10 grid items-stretch gap-8 lg:grid-cols-12 lg:gap-12">
         <figure class="relative min-h-[320px] overflow-hidden rounded-2xl ring-1 ring-line sm:min-h-[400px] lg:col-span-6 bg-white">
           <div class="technical-grid absolute inset-0 opacity-30"></div>
-          <span class="absolute bottom-4 right-6 font-display text-[5.5rem] font-extrabold leading-none tracking-[-0.08em] text-ink/[0.035]">{{ p.num }}</span>
           <img src="{{ p.img | lurl }}" alt="{{ imgAlt }}"
                class="relative z-10 h-full min-h-[320px] w-full object-contain p-7 sm:min-h-[400px] sm:p-12" loading="lazy"
                onerror="this.style.display='none'">
