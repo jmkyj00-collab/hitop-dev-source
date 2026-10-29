@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import years from "./src/_data/years.js";
 
 // ── 다국어(ko/en) ──
 // 국문 문구를 그대로 키로 쓰는 번역 사전: src/i18n/en/*.json 을 모두 합쳐 사용한다.
@@ -73,6 +74,13 @@ export default function (eleventyConfig) {
   });
 
   // 특허번호 "(제10-2375750호)" / "(No. 10-2375750)"가 하이픈에서 줄바꿈되지 않게 묶는다 (출력은 | safe)
+  // 문장 속 "{n}"을 업력 숫자로. 브라우저가 방문 시점 연도로 다시 계산하도록 span으로 감싼다 (출력은 | safe)
+  eleventyConfig.addFilter("withYears", (text) =>
+    String(text)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace("{n}", `<span data-years-in-business>${years.inBusiness}</span>`)
+  );
+
   eleventyConfig.addFilter("keepPatentNo", (text) =>
     String(text)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")

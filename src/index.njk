@@ -189,8 +189,8 @@ bodyClass: bg-surface text-ink
           <div class="flex items-start justify-between gap-5">
             <div>
               <p class="font-display text-[0.62rem] font-bold uppercase tracking-[0.24em] text-secondary/70">Years in Business</p>
-              <p class="mt-2 font-display text-6xl font-extrabold tracking-[-0.06em] text-ink">{{ years.inBusiness }}<span class="ml-1 text-xl tracking-normal text-accent">{{ "년" | t }}</span></p>
-              <p class="mt-3 max-w-[13rem] text-sm leading-relaxed text-secondary">{{ "{n}년 업력으로 축적된 제조 노하우" | t | replace("{n}", years.inBusiness) }}</p>
+              <p class="mt-2 font-display text-6xl font-extrabold tracking-[-0.06em] text-ink"><span data-years-in-business>{{ years.inBusiness }}</span><span class="ml-1 text-xl tracking-normal text-accent">{{ "년" | t }}</span></p>
+              <p class="mt-3 max-w-[13rem] text-sm leading-relaxed text-secondary">{{ "{n}년 업력으로 축적된 제조 노하우" | t | withYears | safe }}</p>
             </div>
             <span class="chip-patent shrink-0">
               <span class="material-symbols-outlined !text-sm" aria-hidden="true" style="font-variation-settings:'FILL' 1">verified</span>
@@ -290,14 +290,14 @@ bodyClass: bg-surface text-ink
   <div class="mt-20 grid grid-cols-2 gap-y-12 border-t border-line pt-14 md:grid-cols-4" data-reveal>
     {% set stats = [
       { v: "74", suf: "",  l: "Registered Products", d: "나라장터 등록 — 교량 53 · 논슬립 15 · 목재덱 6" },
-      { v: years.inBusiness, suf: "년", l: "Years in Business",  d: "한 분야에서 쌓아온 제조 전문성" },
+      { v: years.inBusiness, suf: "년", l: "Years in Business",  d: "한 분야에서 쌓아온 제조 전문성", years: true },
       { v: "5",  suf: "",  l: "Patents",             d: "신축이음장치 분야 등록 특허" },
       { v: "6",  suf: "",  l: "Certifications",      d: "조달청 · 벤처기업 · G-PASS 외" }
     ] %}
     {% for s in stats %}
       {% set suffix = s.suf | t %}
       <div class="px-4 text-center md:px-6 {% if not loop.last %}md:border-r md:border-line{% endif %}">
-        <div class="counter font-display text-5xl font-extrabold tracking-tight text-ink lg:text-6xl" data-target="{{ s.v }}" data-suffix="{{ suffix }}">{{ s.v }}<em class="not-italic">{{ suffix }}</em></div>
+        <div class="counter font-display text-5xl font-extrabold tracking-tight text-ink lg:text-6xl" data-target="{{ s.v }}" data-suffix="{{ suffix }}"{% if s.years %} data-years-in-business{% endif %}>{{ s.v }}<em class="not-italic">{{ suffix }}</em></div>
         <p class="mt-3 font-display text-[0.65rem] font-bold uppercase tracking-[0.25em] text-secondary/70">{{ s.l }}</p>
         <p class="mt-2.5 text-sm text-secondary">{{ s.d | t }}</p>
       </div>
