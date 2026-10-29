@@ -4,7 +4,7 @@
 
 - 개발: https://github.com/jmkyj00-collab/hitop-dev-source
 - 배포 파일: https://github.com/jmkyj00-collab/dev-hitop
-- 테스트 홈페이지: https://jmkyj00-collab.github.io/dev-hitop/
+- 테스트 홈페이지: https://zerok.site/ (`dev-hitop`의 GitHub Pages 커스텀 도메인)
 
 ## 개발 및 빌드
 
@@ -15,7 +15,7 @@ npm ci
 npm run dev
 ```
 
-개발 서버가 출력하는 주소에서 확인합니다. 홈페이지는 `/dev-hitop/` 경로를 기준으로 합니다.
+개발 서버가 출력하는 주소에서 확인합니다. 홈페이지는 도메인 루트(`/`)를 기준으로 합니다.
 
 ```sh
 npm run build
@@ -63,4 +63,4 @@ Pull request에서는 빌드만 검증하며 배포하지 않습니다. Actions�
 
 ## 기준 버전
 
-기존 `homepage-autoslide` 브랜치의 `d6d6c55d8135434eab72918051ad259ed0cc75fc`를 기준으로 시작했습니다. GitHub Pages용 `/dev-hitop/` 경로를 유지합니다. Sites 호스팅과는 별도로 관리합니다.
+기존 `homepage-autoslide` 브랜치의 `d6d6c55d8135434eab72918051ad259ed0cc75fc`를 기준으로 시작했습니다. 처음에는 GitHub Pages용 `/dev-hitop/` 경로를 썼으나, 커스텀 도메인(zerok.site) 연결 후 루트 기준으로 바꿨습니다. Sites 호스팅과는 별도로 관리합니다.

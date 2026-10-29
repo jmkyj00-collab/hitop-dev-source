@@ -86,7 +86,8 @@ export default function (eleventyConfig) {
   });
 
   return {
-    pathPrefix: "/dev-hitop/",
+    // 커스텀 도메인(zerok.site) 루트에서 서비스하므로 경로 접두사 없이 루트 기준
+    pathPrefix: "/",
     dir: {
       input: "src",
       output: "_site",

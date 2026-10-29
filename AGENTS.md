@@ -4,7 +4,7 @@
 
 - This is `jmkyj00-collab/hitop-dev-source`, seeded from `homepage-autoslide` at `d6d6c55`.
 - All six pages, including products and delivery, are now Eleventy templates in `src/`. Earlier legacy-page notes below are historical; root legacy HTML files are not present.
-- Build with `npm run build`. Preserve the `/dev-hitop/` URL prefix.
+- Build with `npm run build`. The site is served from the root of the custom domain `zerok.site` (`pathPrefix: "/"`); do not reintroduce the old `/dev-hitop/` prefix.
 - Push source changes to this repository, never to the deployment repository directly.
 - `.github/workflows/publish.yml` builds and publishes only `_site/` output to `jmkyj00-collab/dev-hitop` on main pushes. Pull requests build without publishing.
 - `DEPLOY_SSH_KEY` is a GitHub Actions secret; never write private keys into source files.
