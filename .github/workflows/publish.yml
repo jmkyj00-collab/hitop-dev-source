@@ -4,6 +4,9 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  # 매년 1월 1일 00:00 KST(전년 12/31 15:00 UTC) 재배포 — 업력·푸터 연도(src/_data/years.js) 갱신
+  schedule:
+    - cron: "0 15 31 12 *"
 permissions:
   contents: read
 concurrency:
